@@ -1743,8 +1743,11 @@ textarea.cc-inp{min-height:80px;resize:vertical}
         </div>
       </div>
 
-      <!-- RIGHT: 문의 폼 -->
+      <!-- RIGHT: 문의 폼 (Netlify Forms) -->
       <div class="contact-form">
+        <form id="contact-form-elem" name="contact" method="POST" netlify style="display:none">
+          <input type="hidden" name="inquiry_type" id="ct-type">
+        </form>
         <div id="contact-form-inner">
           <div class="contact-form-title">문의 보내기 ✉️</div>
 
@@ -1756,12 +1759,12 @@ textarea.cc-inp{min-height:80px;resize:vertical}
             <div class="contact-type-opt" onclick="selContactType(this,'other')">💬 기타</div>
           </div>
 
-          <input class="contact-inp" id="ct-name" type="text" placeholder="이름 / 브랜드명">
-          <input class="contact-inp" id="ct-email" type="email" placeholder="이메일 주소">
-          <input class="contact-inp" id="ct-subject" type="text" placeholder="제목">
-          <textarea class="contact-inp" id="ct-msg" placeholder="문의 내용을 자세히 적어주세요..."></textarea>
+          <input class="contact-inp" id="ct-name" type="text" placeholder="이름 / 브랜드명" name="name">
+          <input class="contact-inp" id="ct-email" type="email" placeholder="이메일 주소" name="email">
+          <input class="contact-inp" id="ct-subject" type="text" placeholder="제목" name="subject">
+          <textarea class="contact-inp" id="ct-msg" placeholder="문의 내용을 자세히 적어주세요..." name="message"></textarea>
 
-          <button class="contact-submit" onclick="submitContact()">📨 문의 보내기</button>
+          <button type="button" class="contact-submit" onclick="submitContact()">📨 문의 보내기</button>
           <p style="text-align:center;font-size:11px;color:var(--ink40);margin-top:10px;font-family:var(--fm)">보통 1~2 영업일 내 답변 · 일본어 OK</p>
         </div>
 
@@ -3103,7 +3106,8 @@ function renderCampaigns(){
   `).join('');
 }
 
-/* ══════ CONTACT ══════ */
+/* ══════ CONTACT (Netlify Forms) ══════ */
+const CONTACT_TYPE_LABELS = { brand:'브랜드 입점', inf:'인플루언서 등록', tech:'기술 문의', other:'기타' };
 let contactType = 'brand';
 function selContactType(el, type){
   contactType = type;
@@ -3117,9 +3121,18 @@ function submitContact(){
   if(!name){ showToast('이름을 입력해주세요!'); return; }
   if(!email || !email.includes('@')){ showToast('올바른 이메일을 입력해주세요!'); return; }
   if(!msg){ showToast('문의 내용을 입력해주세요!'); return; }
-  // 실제 서버 없으므로 성공 처리
-  document.getElementById('contact-form-inner').style.display='none';
-  document.getElementById('contact-success').classList.add('show');
+
+  document.getElementById('ct-type').value = CONTACT_TYPE_LABELS[contactType];
+  const form = document.getElementById('contact-form-elem');
+
+  const btn = document.querySelector('#contact-form-inner .contact-submit');
+  const origLabel = btn.textContent;
+  btn.textContent = '전송 중...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    form.submit();
+  }, 300);
 }
 function resetContact(){
   document.getElementById('ct-name').value='';
