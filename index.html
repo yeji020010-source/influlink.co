@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>INFLULINK — 한일 인플루언서 직접 계약 플랫폼</title>
 <script src="https://js.tosspayments.com/v1/payment"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -1651,9 +1655,9 @@ textarea.cc-inp{min-height:80px;resize:vertical}
       </div>
       <div class="auth-body">
         <div class="sns-list">
-          <button class="sns-btn kakao" onclick="snsLogin('kakao')"><div class="sns-ico">💬</div><span>카카오톡으로 계속하기</span></button>
+          <button class="sns-btn kakao" onclick="kakaoLogin()"><div class="sns-ico">💬</div><span>카카오톡으로 계속하기</span></button>
           <button class="sns-btn naver" onclick="snsLogin('naver')"><div class="sns-ico">N</div><span>네이버로 계속하기</span></button>
-          <button class="sns-btn google" onclick="snsLogin('google')"><div class="sns-ico">🌐</div><span>Google로 계속하기</span></button>
+          <button class="sns-btn google" onclick="googleLogin()"><div class="sns-ico">🌐</div><span>Google로 계속하기</span></button>
           <button class="sns-btn instagram" onclick="snsLogin('instagram')"><div class="sns-ico">📷</div><span>Instagram으로 계속하기</span></button>
           <button class="sns-btn line" onclick="snsLogin('line')"><div class="sns-ico">💚</div><span>LINE으로 계속하기</span></button>
           <button class="sns-btn x" onclick="snsLogin('x')"><div class="sns-ico">✖</div><span>X (Twitter)로 계속하기</span></button>
@@ -2513,8 +2517,77 @@ function goBack(){
 }
 function closePage(){ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active')); document.getElementById('landing-content').classList.remove('hidden'); }
 
+/* ══════ FIREBASE ══════ */
+// ⚠️ Firebase 콘솔 > 프로젝트 설정 > 일반 > "내 앱"에서 발급받은 웹 설정 값으로 교체하세요.
+const firebaseConfig = {
+  apiKey: "YOUR_FIREBASE_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+firebase.initializeApp(firebaseConfig);
+const fbAuth = firebase.auth();
+const db = firebase.firestore();
+
+// ⚠️ Kakao Developers > 내 애플리케이션 > 앱 키 > JavaScript 키로 교체하세요.
+const KAKAO_JS_KEY = "YOUR_KAKAO_JAVASCRIPT_KEY";
+if (window.Kakao && !Kakao.isInitialized()) Kakao.init(KAKAO_JS_KEY);
+
 /* ══════ AUTH + SESSION ══════ */
 let currentUser = null;
+let pendingAuthUid = null, pendingAuthProvider = null, pendingAuthEmail = '';
+
+async function googleLogin(){
+  try{
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const result = await fbAuth.signInWithPopup(provider);
+    const fbUser = result.user;
+    const snap = await db.collection('users').doc(fbUser.uid).get();
+    if(snap.exists){
+      const user = snap.data();
+      localStorage.setItem(SK.user, JSON.stringify(user));
+      applyLoggedIn(user); closeAuth();
+      showToast('🎉 '+user.name+'님, 환영합니다!');
+    }else{
+      pendingAuthUid = fbUser.uid; pendingAuthProvider = 'google'; pendingAuthEmail = fbUser.email||'';
+      document.getElementById('signup-name-inp').value = fbUser.displayName || 'Google 사용자';
+      authGoStep('signup');
+    }
+  }catch(err){
+    showToast('Google 로그인에 실패했어요: '+err.message);
+  }
+}
+
+function kakaoLogin(){
+  if(!window.Kakao || !Kakao.isInitialized()){ showToast('카카오 로그인을 사용할 수 없어요'); return; }
+  Kakao.Auth.login({
+    success: function(){
+      Kakao.API.request({
+        url: '/v2/user/me',
+        success: async function(res){
+          const uid = 'kakao_'+res.id;
+          const account = res.kakao_account||{}; const profile = account.profile||{};
+          const snap = await db.collection('users').doc(uid).get();
+          if(snap.exists){
+            const user = snap.data();
+            localStorage.setItem(SK.user, JSON.stringify(user));
+            applyLoggedIn(user); closeAuth();
+            showToast('🎉 '+user.name+'님, 환영합니다!');
+          }else{
+            pendingAuthUid = uid; pendingAuthProvider = 'kakao'; pendingAuthEmail = account.email||'';
+            document.getElementById('signup-name-inp').value = profile.nickname || '카카오 사용자';
+            authGoStep('signup');
+          }
+        },
+        fail: function(){ showToast('카카오 사용자 정보를 가져오지 못했어요'); }
+      });
+    },
+    fail: function(){ showToast('카카오 로그인에 실패했어요'); }
+  });
+}
+
 function loadSession(){
   const saved = localStorage.getItem(SK.user);
   if(saved){ currentUser = JSON.parse(saved); applyLoggedIn(currentUser); }
@@ -2533,6 +2606,7 @@ function applyLoggedIn(user){
 }
 function doLogout(){
   localStorage.removeItem(SK.user); currentUser=null;
+  if(fbAuth.currentUser) fbAuth.signOut().catch(()=>{});
   document.getElementById('header-guest').style.display='flex';
   document.getElementById('header-user').style.display='none';
   showToast('로그아웃되었습니다');
@@ -2548,12 +2622,18 @@ function closeAuthOverlay(e){ if(e.target===document.getElementById('auth-overla
 function authGoStep(step){ document.getElementById('auth-step-login').classList.toggle('on',step==='login'); document.getElementById('auth-step-signup').classList.toggle('on',step==='signup'); }
 function snsLogin(p){ pendingSNS=p; document.getElementById('signup-name-inp').value=SNS_NAMES[p]||'사용자'; authGoStep('signup'); }
 function selType(el,type){ selectedType=type; document.querySelectorAll('.type-opt').forEach(o=>o.classList.remove('sel')); el.classList.add('sel'); }
-function completeSignup(){
+async function completeSignup(){
   const name=document.getElementById('signup-name-inp').value.trim()||'사용자';
-  const user={name,type:selectedType,provider:pendingSNS,createdAt:Date.now()};
+  const user={name,type:selectedType,provider:pendingAuthProvider||pendingSNS,email:pendingAuthEmail||'',createdAt:Date.now()};
+  if(pendingAuthUid){
+    user.uid = pendingAuthUid;
+    try{ await db.collection('users').doc(pendingAuthUid).set(user); }
+    catch(err){ showToast('회원 정보 저장에 실패했어요: '+err.message); return; }
+  }
   localStorage.setItem(SK.user, JSON.stringify(user));
   applyLoggedIn(user); closeAuth();
   showToast('🎉 '+name+'님, 환영합니다!');
+  pendingAuthUid=null; pendingAuthProvider=null; pendingAuthEmail='';
   if(selectedType==='influencer') setTimeout(()=>{ if(confirm('인플루언서 프로필을 지금 등록하시겠어요?')) openOnboard(); },800);
 }
 
