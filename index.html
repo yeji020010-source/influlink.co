@@ -593,12 +593,7 @@ footer{background:var(--ink);padding:60px 0 32px}
 .sns-list{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .sns-btn{width:100%;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;border:1.5px solid transparent;display:flex;align-items:center;gap:12px;font-family:inherit;transition:all .15s}
 .sns-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.sns-btn.kakao{background:#FEE500;color:#3C1E1E;border-color:#E6CE00}
-.sns-btn.naver{background:#03C75A;color:#fff;border-color:#02A84A}
 .sns-btn.google{background:#fff;color:#333;border-color:var(--ink10)}
-.sns-btn.instagram{background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF);color:#fff}
-.sns-btn.line{background:#06C755;color:#fff;border-color:#05A845}
-.sns-btn.x{background:#000;color:#fff;border-color:#333}
 .sns-ico{width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0}
 .auth-divider{text-align:center;font-size:11px;color:var(--ink40);font-family:var(--fm);margin:16px 0;position:relative}
 .auth-divider::before,.auth-divider::after{content:'';position:absolute;top:50%;width:38%;height:1px;background:var(--ink10)}
@@ -1654,12 +1649,7 @@ textarea.cc-inp{min-height:80px;resize:vertical}
       </div>
       <div class="auth-body">
         <div class="sns-list">
-          <button class="sns-btn kakao" onclick="snsLogin('kakao')"><div class="sns-ico">💬</div><span>카카오톡으로 계속하기</span></button>
-          <button class="sns-btn naver" onclick="snsLogin('naver')"><div class="sns-ico">N</div><span>네이버로 계속하기</span></button>
           <button class="sns-btn google" onclick="googleLogin()"><div class="sns-ico">🌐</div><span>Google로 계속하기</span></button>
-          <button class="sns-btn instagram" onclick="snsLogin('instagram')"><div class="sns-ico">📷</div><span>Instagram으로 계속하기</span></button>
-          <button class="sns-btn line" onclick="snsLogin('line')"><div class="sns-ico">💚</div><span>LINE으로 계속하기</span></button>
-          <button class="sns-btn x" onclick="snsLogin('x')"><div class="sns-ico">✖</div><span>X (Twitter)로 계속하기</span></button>
         </div>
         <p class="auth-terms">로그인 시 <a>이용약관</a> 및 <a>개인정보처리방침</a>에<br>동의하는 것으로 간주합니다.</p>
       </div>
@@ -2581,17 +2571,15 @@ function doLogout(){
 function toggleUserMenu(){ document.getElementById('user-menu').classList.toggle('open'); }
 function closeUserMenu(){ document.getElementById('user-menu').classList.remove('open'); }
 
-let selectedType='brand', pendingSNS=null;
-const SNS_NAMES={kakao:'카카오 사용자',naver:'네이버 사용자',google:'Google User',instagram:'Instagram User',line:'LINE User',x:'X User'};
+let selectedType='brand';
 function openAuth(step){ document.getElementById('auth-overlay').classList.add('open'); authGoStep(step||'login'); }
 function closeAuth(){ document.getElementById('auth-overlay').classList.remove('open'); }
 function closeAuthOverlay(e){ if(e.target===document.getElementById('auth-overlay')) closeAuth(); }
 function authGoStep(step){ document.getElementById('auth-step-login').classList.toggle('on',step==='login'); document.getElementById('auth-step-signup').classList.toggle('on',step==='signup'); }
-function snsLogin(p){ pendingSNS=p; document.getElementById('signup-name-inp').value=SNS_NAMES[p]||'사용자'; authGoStep('signup'); }
 function selType(el,type){ selectedType=type; document.querySelectorAll('.type-opt').forEach(o=>o.classList.remove('sel')); el.classList.add('sel'); }
 async function completeSignup(){
   const name=document.getElementById('signup-name-inp').value.trim()||'사용자';
-  const user={name,type:selectedType,provider:pendingAuthProvider||pendingSNS,email:pendingAuthEmail||'',createdAt:Date.now()};
+  const user={name,type:selectedType,provider:pendingAuthProvider,email:pendingAuthEmail||'',createdAt:Date.now()};
   if(pendingAuthUid){
     user.uid = pendingAuthUid;
     try{ await db.collection('users').doc(pendingAuthUid).set(user); }
