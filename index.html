@@ -2450,7 +2450,7 @@ const I18N={
   en:{'nav-how':'How It Works','nav-fee':'Pricing','nav-contact':'Contact','login':'Log In','signup':'Get Started Free','fee-label':'Pricing','fee-title':'One simple fee,<br><em>nothing hidden</em>','fee-sub':'No agency double-fees. No monthly subscription. Just 15% when a deal closes.','fee-platform':'Platform Fee','fee-only':'On successful deals only · Escrow included · No hidden costs','fee-compare-label':'vs. Competition','fee-agency-kr':'Korean Agency','fee-agency-both':'KR + JP Agencies','fee-global':'Global Platforms','fee-pt1-title':'Brand Pays','fee-pt1-desc':'Brand covers the fee. Influencers receive 100% of quoted price.','fee-pt2-title':'Escrow Included','fee-pt2-desc':'Payment fee + escrow all bundled in 15%. Zero surprises.','fee-pt3-title':'Deal-based Only','fee-pt3-desc':'No monthly fee. You only pay when a campaign completes.','fee-cta':'→ Start for Free','fee-note':'No credit card needed · Instant start · Fee charged on completion','tr-btn':'Translate','tr-ing':'Translating...','tr-done':'Translated','sidebar-tag':'Korea–Japan Influencer Platform'}
 };
 let currentLang='kr';
-const LANG_META={kr:{flag:'🇰🇷',label:'한국어',pair:'ko|ja'},jp:{flag:'🇯🇵',label:'日本語',pair:'ja|ko'},en:{flag:'🇺🇸',label:'English',pair:'en|ja'}};
+const LANG_META={kr:{flag:'🇰🇷',label:'한국어',deepl:'KO'},jp:{flag:'🇯🇵',label:'日本語',deepl:'JA'},en:{flag:'🇺🇸',label:'English',deepl:'EN-US'}};
 
 /* ══════ LANG ══════ */
 function toggleLangMenu(){ document.getElementById('lang-dropdown').classList.toggle('open'); }
@@ -2700,11 +2700,16 @@ async function trBubble(id,role){
   if(!bubble||!btn||!res) return;
   if(res.style.display!=='none'){res.style.display='none';btn.classList.remove('done');btn.innerHTML='🌐 '+((I18N[currentLang]&&I18N[currentLang]['tr-btn'])||'번역');return;}
   btn.textContent=(I18N[currentLang]&&I18N[currentLang]['tr-ing'])||'번역 중...'; btn.disabled=true;
-  const pair=(LANG_META[currentLang]&&LANG_META[currentLang].pair)||'ko|ja';
+  const targetLang=(LANG_META[currentLang]&&LANG_META[currentLang].deepl)||'KO';
   try{
-    const r=await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(bubble.textContent.trim())}&langpair=${pair}`);
+    const r=await fetch('/.netlify/functions/translate',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({text:bubble.textContent.trim(),targetLang})
+    });
+    if(!r.ok) throw new Error('translate failed');
     const d=await r.json();
-    res.textContent='🌐 '+(d.responseData?.translatedText||'—'); res.style.display='block';
+    res.textContent='🌐 '+(d.translatedText||'—'); res.style.display='block';
     btn.innerHTML='✓ '+((I18N[currentLang]&&I18N[currentLang]['tr-done'])||'번역됨');
     btn.classList.add('done'); btn.disabled=false;
     document.getElementById('panel-body').scrollTop=document.getElementById('panel-body').scrollHeight;
