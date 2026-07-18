@@ -2563,6 +2563,7 @@ function applyLoggedIn(user){
 }
 function doLogout(){
   localStorage.removeItem(SK.user); currentUser=null;
+  if(unsubscribeChat){ unsubscribeChat(); unsubscribeChat=null; }
   if(fbAuth.currentUser) fbAuth.signOut().catch(()=>{});
   document.getElementById('header-guest').style.display='flex';
   document.getElementById('header-user').style.display='none';
@@ -2711,7 +2712,7 @@ const THREADS=[
   {id:3,name:'佐藤りな',emoji:'🌺',bg:'linear-gradient(135deg,#F59E0B,#EF4444)',preview:'撮影日の調整お願いします',time:'어제',unread:false,msgs:[{role:'them',text:'撮影日の調整お願いします',time:'어제 오후 5:20'}]},
   {id:4,name:'박지민',emoji:'🥘',bg:'linear-gradient(135deg,#EC4899,#8B5CF6)',preview:'협업 감사했습니다!',time:'어제',unread:false,msgs:[{role:'them',text:'협업 감사했습니다!',time:'어제 오전 9:12'}]},
 ];
-let currentThread=0,bubbleId=0;
+let currentThread=0,bubbleId=0,unsubscribeChat=null;
 function renderMsgList(){ const s=document.getElementById('msg-list-scroll'); if(!s) return; s.innerHTML=THREADS.map(t=>`<div class="msg-item ${t.id===currentThread?'active':''}" onclick="renderMsgPanel(${t.id})"><div class="msg-av" style="background:${t.bg};color:#fff">${t.emoji}</div><div class="msg-item-info"><div class="msg-item-top"><div class="msg-item-name">${t.name}</div><div class="msg-item-time">${t.time}</div></div><div class="msg-item-preview">${t.preview}</div></div>${t.unread?'<div class="msg-item-unread"></div>':''}</div>`).join(''); }
 function renderMsgPanel(id){
   currentThread=id; const t=THREADS[id]; bubbleId=0;
@@ -2720,6 +2721,21 @@ function renderMsgPanel(id){
   const body=document.getElementById('panel-body'); if(!body) return;
   body.innerHTML=''; t.msgs.forEach(m=>appendBubble(m.role,m.text,m.time,false));
   body.scrollTop=body.scrollHeight; renderMsgList();
+
+  if(unsubscribeChat){ unsubscribeChat(); unsubscribeChat=null; }
+  if(currentUser){
+    const chatDocId = currentUser.uid+'_'+id;
+    unsubscribeChat = db.collection('chatMessages').doc(chatDocId).collection('messages')
+      .orderBy('createdAt')
+      .onSnapshot(snap=>{
+        snap.docChanges().forEach(change=>{
+          if(change.type==='added'){
+            const m = change.doc.data();
+            appendBubble('me', m.text, m.time, true);
+          }
+        });
+      }, err=>{ console.error('chat sync error', err); });
+  }
 }
 function appendBubble(role,text,time,anim=true){
   const id='b'+(++bubbleId); const body=document.getElementById('panel-body'); if(!body) return;
@@ -2757,8 +2773,16 @@ async function translateAllMsgs(){
 function sendMsg(){
   const inp=document.getElementById('msg-input'); const text=inp.value.trim(); if(!text) return;
   inp.value=''; const now=new Date(); const time=`오후 ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
-  THREADS[currentThread].msgs.push({role:'me',text,time}); THREADS[currentThread].preview=text; THREADS[currentThread].time='방금';
-  appendBubble('me',text,time,true);
+  THREADS[currentThread].preview=text; THREADS[currentThread].time='방금';
+  if(currentUser){
+    const chatDocId = currentUser.uid+'_'+currentThread;
+    db.collection('chatMessages').doc(chatDocId).collection('messages').add({
+      text, time, createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    }).catch(()=>{ showToast('메시지 저장에 실패했어요'); appendBubble('me',text,time,true); });
+  } else {
+    appendBubble('me',text,time,true);
+    showToast('로그인하면 대화가 저장돼요');
+  }
   setTimeout(()=>{ const r=['네 확인했습니다!','좋아요 😊','잠시만 기다려주세요','자료 전달해주시면 검토하겠습니다'][Math.floor(Math.random()*4)]; THREADS[currentThread].msgs.push({role:'them',text:r,time}); appendBubble('them',r,time,true); renderMsgList(); },800+Math.random()*600);
 }
 
