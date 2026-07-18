@@ -21,10 +21,11 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'text and targetLang are required' }) };
   }
 
-  const apiHost = apiKey.endsWith(':fx') ? 'api-free.deepl.com' : 'api.deepl.com';
+  const preferredHost = apiKey.endsWith(':fx') ? 'api-free.deepl.com' : 'api.deepl.com';
+  const fallbackHost = preferredHost === 'api-free.deepl.com' ? 'api.deepl.com' : 'api-free.deepl.com';
 
-  try {
-    const res = await fetch(`https://${apiHost}/v2/translate`, {
+  async function callDeepL(host) {
+    const res = await fetch(`https://${host}/v2/translate`, {
       method: 'POST',
       headers: {
         'Authorization': `DeepL-Auth-Key ${apiKey}`,
@@ -35,10 +36,21 @@ exports.handler = async (event) => {
         target_lang: targetLang
       })
     });
+    return res;
+  }
+
+  try {
+    let res = await callDeepL(preferredHost);
+    let hostUsed = preferredHost;
+
+    if (res.status === 403) {
+      res = await callDeepL(fallbackHost);
+      hostUsed = fallbackHost;
+    }
 
     if (!res.ok) {
       const errText = await res.text();
-      return { statusCode: res.status, body: JSON.stringify({ error: 'DeepL API error', detail: errText }) };
+      return { statusCode: res.status, body: JSON.stringify({ error: 'DeepL API error', detail: errText, hostTried: hostUsed }) };
     }
 
     const data = await res.json();
