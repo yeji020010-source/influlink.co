@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KBEAUTY.jp — 日本人向けK-Beauty完全ガイド | 韓国コスメ・現地人おすすめ</title>
+<meta name="description" content="韓国の現地人が本当に使っているコスメ、今韓国で流行中のアイテム、日本人に特に人気の商品をカテゴリ別に紹介。すべて韓国語の商品名付きで店頭でもすぐ探せます。">
+<meta property="og:title" content="KBEAUTY.jp — 日本人向けK-Beauty完全ガイド">
+<meta property="og:description" content="韓国の現地人おすすめコスメ&トレンドアイテムをカテゴリ別に厳選。日本人旅行者必見のK-Beautyガイド。">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!--
+  Google AdSense:
+  審査通過後、下の1行のコメントを外して ca-pub-XXXXXXXXXXXXXXXX を自分のIDに置き換える。
+  ページ内の .ad-slot にも同様に広告ユニットコードを貼る。
+-->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#0BA360; --green-d:#08834E; --green-l:#E4F7EE; --green-t:#F2FBF6;
+  --lime:#9BC53D; --pink:#FF6B9A; --pink-l:#FFEDF3;
+  --ink:#111827; --ink70:#3F4655; --ink50:#6B7280; --ink35:#9CA3AF; --ink15:#E5E7EB; --ink08:#F3F4F6; --ink04:#F9FAFB;
+  --white:#fff;
+  --fd:'Bricolage Grotesque','Noto Sans JP',sans-serif;
+  --fb:'Noto Sans JP','Noto Sans KR',sans-serif;
+  --fm:'DM Mono',monospace;
+  --sh-sm:0 1px 3px rgba(17,24,39,.06),0 4px 12px rgba(17,24,39,.05);
+  --sh-md:0 4px 20px rgba(17,24,39,.09);
+  --r:14px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;border:none;background:none;cursor:pointer}
+.container{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--ink15)}
+.header-in{max-width:1080px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--fd);font-weight:800;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.logo-mark{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--green),var(--lime));display:flex;align-items:center;justify-content:center;font-size:15px}
+.logo em{font-style:normal;color:var(--green)}
+.hnav{display:flex;gap:22px;font-size:13px;font-weight:500;color:var(--ink50)}
+.hnav a:hover{color:var(--ink)}
+@media(max-width:640px){.hnav{display:none}}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--green-t) 0%,#FDFDF8 60%,var(--pink-l) 100%);border-bottom:1px solid var(--ink15);overflow:hidden;position:relative}
+.hero-in{max-width:1080px;margin:0 auto;padding:64px 20px 56px;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--ink15);border-radius:99px;padding:6px 14px;font-size:12px;font-weight:700;color:var(--green-d);box-shadow:var(--sh-sm);margin-bottom:20px}
+.hero h1{font-size:clamp(30px,5.5vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1.18;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:var(--green);position:relative}
+.hero-sub{font-size:15px;line-height:1.9;color:var(--ink70);max-width:600px;margin-bottom:8px}
+.hero-sub strong{color:var(--green-d)}
+.hero-note{font-size:12.5px;color:var(--ink50);max-width:600px;line-height:1.8;margin-bottom:28px}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn-g{padding:13px 26px;background:var(--green);color:#fff;border-radius:12px;font-size:14px;font-weight:700;transition:.15s;box-shadow:0 4px 14px rgba(11,163,96,.28);display:inline-flex;align-items:center;gap:7px}
+.btn-g:hover{background:var(--green-d);transform:translateY(-1px)}
+.btn-o{padding:13px 22px;background:#fff;border:1.5px solid var(--ink15);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--ink70);transition:.15s}
+.btn-o:hover{border-color:var(--ink50);color:var(--ink)}
+.hero-stats{display:flex;gap:28px;margin-top:36px;flex-wrap:wrap}
+.hstat b{font-family:var(--fd);font-size:26px;font-weight:800;color:var(--ink);display:block;line-height:1.1}
+.hstat b i{font-style:normal;color:var(--green);font-size:18px}
+.hstat span{font-size:12px;color:var(--ink50)}
+.hero-deco{position:absolute;right:-40px;top:20px;font-size:150px;opacity:.10;pointer-events:none;user-select:none;transform:rotate(12deg)}
+
+/* TAB NAV (3 collections) */
+.tabs-wrap{position:sticky;top:60px;z-index:40;background:#fff;border-bottom:1px solid var(--ink15)}
+.tabs{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;gap:6px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:14px 18px 12px;font-size:14px;font-weight:700;color:var(--ink50);border-bottom:2.5px solid transparent;transition:.15s;display:flex;align-items:center;gap:7px}
+.tab .tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:99px;background:var(--ink08);color:var(--ink50)}
+.tab.on{color:var(--green-d);border-bottom-color:var(--green)}
+.tab.on .tag{background:var(--green-l);color:var(--green-d)}
+.tab:hover{color:var(--ink)}
+
+/* COLLECTION HEADER */
+.coll-head{padding:40px 0 8px}
+.coll-head h2{font-size:24px;font-weight:900;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.coll-head p{font-size:13.5px;color:var(--ink50);margin-top:8px;line-height:1.8;max-width:640px}
+
+/* FILTERS */
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding:18px 0 6px;align-items:center}
+.chip{padding:8px 16px;border-radius:99px;border:1.5px solid var(--ink15);font-size:12.5px;font-weight:600;color:var(--ink50);transition:.13s;background:#fff}
+.chip:hover{border-color:var(--green);color:var(--green-d)}
+.chip.on{background:var(--green);border-color:var(--green);color:#fff}
+.search-box{margin-left:auto;position:relative}
+.search-box input{padding:9px 14px 9px 34px;border:1.5px solid var(--ink15);border-radius:99px;font-size:13px;font-family:inherit;width:200px;outline:none;transition:.15s;background:#fff}
+.search-box input:focus{border-color:var(--green);width:240px}
+.search-box::before{content:"🔍";position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:12px}
+@media(max-width:640px){.search-box{margin-left:0;width:100%}.search-box input{width:100%}.search-box input:focus{width:100%}}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:20px 0 12px}
+.card{background:#fff;border:1px solid var(--ink15);border-radius:var(--r);overflow:hidden;transition:.18s;display:flex;flex-direction:column;position:relative}
+.card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--ink35)}
+.card-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative}
+.card-rank{position:absolute;top:10px;left:10px;background:rgba(17,24,39,.85);color:#fff;font-family:var(--fd);font-weight:800;font-size:12px;padding:3px 9px;border-radius:7px}
+.card-badges{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.bdg{font-size:9.5px;font-weight:700;padding:3px 8px;border-radius:99px;letter-spacing:.02em}
+.bdg-local{background:#fff;color:var(--green-d);border:1px solid rgba(11,163,96,.35)}
+.bdg-trend{background:#fff;color:#D97706;border:1px solid rgba(217,119,6,.35)}
+.bdg-jp{background:#fff;color:var(--pink);border:1px solid rgba(255,107,154,.4)}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
+.card-brand{font-size:11px;font-weight:700;color:var(--ink35);letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.card-name{font-size:14px;font-weight:700;line-height:1.45;margin-bottom:3px}
+.card-kr{font-size:12px;color:var(--green-d);font-weight:600;margin-bottom:8px;font-family:'Noto Sans KR',sans-serif;background:var(--green-t);border:1px dashed rgba(11,163,96,.3);border-radius:7px;padding:4px 8px;display:inline-block;align-self:flex-start;cursor:pointer;transition:.13s}
+.card-kr:hover{background:var(--green-l)}
+.card-kr::before{content:"🇰🇷 "}
+.card-desc{font-size:12px;color:var(--ink50);line-height:1.7;flex:1;margin-bottom:10px}
+.card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--ink08);padding-top:10px}
+.card-price{font-family:var(--fm);font-size:13px;font-weight:700;color:var(--ink)}
+.card-price span{font-size:10.5px;color:var(--ink35);font-weight:400;margin-left:4px}
+.card-cat{font-size:10.5px;color:var(--ink35);background:var(--ink08);padding:3px 8px;border-radius:6px}
+.empty{padding:56px 0;text-align:center;color:var(--ink35);font-size:14px;display:none}
+
+/* AD SLOT */
+.ad-slot{margin:32px 0;border:1.5px dashed var(--ink15);border-radius:var(--r);background:var(--ink04);min-height:100px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.ad-slot small{font-size:10px;letter-spacing:.14em;color:var(--ink35);font-family:var(--fm);text-transform:uppercase}
+.ad-slot p{font-size:11px;color:var(--ink35)}
+
+/* TIPS */
+.tips{background:var(--green-t);border-top:1px solid var(--ink15);border-bottom:1px solid var(--ink15);margin-top:40px}
+.tips-in{max-width:1080px;margin:0 auto;padding:56px 20px}
+.sec-label{font-family:var(--fm);font-size:11px;letter-spacing:.16em;color:var(--green-d);text-transform:uppercase;margin-bottom:10px}
+.tips h2,.faq h2{font-size:26px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
+.tips-sub{font-size:13.5px;color:var(--ink50);margin-bottom:28px}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.tip{background:#fff;border:1px solid var(--ink15);border-radius:var(--r);padding:20px}
+.tip-emoji{font-size:26px;margin-bottom:10px}
+.tip h3{font-size:15px;font-weight:700;margin-bottom:7px}
+.tip p{font-size:12.5px;color:var(--ink50);line-height:1.8}
+.tip p b{color:var(--green-d)}
+
+/* PHRASES */
+.phrases{padding:56px 0 8px}
+.phrase-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:24px}
+.phrase{background:#fff;border:1px solid var(--ink15);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.phrase .kr{font-size:15px;font-weight:700;color:var(--ink);font-family:'Noto Sans KR',sans-serif}
+.phrase .romaji{font-size:11px;color:var(--green-d);font-family:var(--fm)}
+.phrase .jp{font-size:12.5px;color:var(--ink50)}
+
+/* FAQ */
+.faq{padding:56px 0}
+.faq-list{margin-top:24px;display:flex;flex-direction:column;gap:10px;max-width:760px}
+.faq-item{border:1px solid var(--ink15);border-radius:12px;background:#fff;overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:16px 18px;font-size:14px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:"+";font-size:18px;color:var(--ink35);transition:.2s;flex-shrink:0}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.faq-a p{padding:0 18px 16px;font-size:13px;color:var(--ink50);line-height:1.9}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--ink15);background:var(--ink04)}
+.footer-in{max-width:1080px;margin:0 auto;padding:36px 20px;font-size:12px;color:var(--ink50);line-height:2}
+.footer-in .disc{font-size:11px;color:var(--ink35);max-width:720px;margin-top:10px;line-height:1.9}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;font-size:12.5px;padding:10px 20px;border-radius:99px;opacity:0;transition:.25s;pointer-events:none;z-index:99}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-in">
+    <a class="logo" href="#"><span class="logo-mark">💄</span>KBEAUTY<em>.jp</em></a>
+    <nav class="hnav">
+      <a href="#products">商品リスト</a>
+      <a href="#tips">買い物のコツ</a>
+      <a href="#phrases">店頭フレーズ</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-deco">💄</div>
+  <div class="hero-in">
+    <div class="hero-badge">🇯🇵 日本人向けK-Beauty完全ガイド</div>
+    <h1>韓国で<em>何を買えばいいか</em>、<br>KBEAUTY.jpで解決。</h1>
+    <p class="hero-sub">韓国の<strong>現地人が本当に使っているコスメ</strong>、<strong>今韓国で流行中のアイテム</strong>、そして<strong>日本人に特に人気の商品</strong>を1つのページに。すべて韓国語の商品名付きだから、店頭でそのまま見せて探せます。</p>
+    <p class="hero-note">「観光客向けの棚」ではなく、韓国人の友達に「これ買っときな」と言われるリアルなおすすめを集めました。</p>
+    <div class="hero-cta">
+      <a class="btn-g" href="#products">おすすめを見る ↓</a>
+      <a class="btn-o" href="#tips">💡 買い物のコツ</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><b>30<i>+</i></b><span>厳選アイテム</span></div>
+      <div class="hstat"><b>3</b><span>目的別カテゴリ</span></div>
+      <div class="hstat"><b>100<i>%</i></b><span>韓国語表記付き</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="tabs-wrap">
+  <nav class="tabs" id="tabs">
+    <button class="tab on" data-coll="local">🏠 現地人の定番 <span class="tag">リアル</span></button>
+    <button class="tab" data-coll="trend">🔥 今韓国で話題 <span class="tag">HOT</span></button>
+    <button class="tab" data-coll="jp">🇯🇵 日本人に人気 <span class="tag">人気</span></button>
+  </nav>
+</div>
+
+<main class="container" id="products">
+  <div class="coll-head">
+    <h2 id="coll-title">🏠 現地人の定番</h2>
+    <p id="coll-desc"></p>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="chip on" data-cat="all">すべて</button>
+    <button class="chip" data-cat="skincare">スキンケア</button>
+    <button class="chip" data-cat="suncare">日焼け止め</button>
+    <button class="chip" data-cat="mask">パック・マスク</button>
+    <button class="chip" data-cat="makeup">メイク</button>
+    <button class="chip" data-cat="lip">リップ</button>
+    <button class="chip" data-cat="body">ボディ・ヘア</button>
+    <div class="search-box"><input type="text" id="search" placeholder="商品名・ブランドで検索"></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">条件に合う商品が見つかりませんでした 🥲</div>
+
+  <!-- AdSense: 審査通過後にこの中へ広告ユニットを貼る -->
+  <div class="ad-slot">
+    <small>AD</small>
+    <p>広告スペース(Google AdSense)</p>
+  </div>
+</main>
+
+<section class="tips" id="tips">
+  <div class="tips-in">
+    <div class="sec-label">Shopping Tips</div>
+    <h2>オリヤン買い物のコツ 💡</h2>
+    <p class="tips-sub">知ってるだけで数千円お得に。韓国在住者が教える攻略法。</p>
+    <div class="tips-grid">
+      <div class="tip"><div class="tip-emoji">🗓️</div><h3>「オリヤンセール」を狙う</h3><p>年4回(3月・6月・9月・12月頃)の大型セール「올영세일(オリヨンセール)」では最大<b>50%オフ</b>。旅行日程が合えば絶対このタイミング。</p></div>
+      <div class="tip"><div class="tip-emoji">1️⃣</div><h3>「1+1」表記は1個買うと1個無料</h3><p>棚の「1+1(ウォンプラスウォン)」は<b>同じ商品がもう1個無料</b>。「2+1」は2個買うと1個無料。友達と割り勘買いするのが韓国流。</p></div>
+      <div class="tip"><div class="tip-emoji">🧾</div><h3>3万ウォン以上で即時タックスリフンド</h3><p>パスポート提示で、3万〜100万ウォン未満の買い物なら<b>レジでその場で免税</b>(即時還付)。パスポートを忘れずに。</p></div>
+      <div class="tip"><div class="tip-emoji">🏬</div><h3>大型店に行くなら明洞・弘大</h3><p>明洞のフラッグシップ店や弘大タウンは品揃えが別格。限定品や先行発売も多い。<b>朝イチ</b>が空いていて試しやすい。</p></div>
+      <div class="tip"><div class="tip-emoji">📱</div><h3>在庫がなければ他店舗へ</h3><p>人気商品(特にパック類)は夕方に売り切れがち。オリヤンはソウル市内に数百店舗あるので、<b>近くの別店舗</b>を覗くと普通にある。</p></div>
+      <div class="tip"><div class="tip-emoji">🎁</div><h3>サンプルとおまけをチェック</h3><p>レジ横やイベント棚には購入特典(사은품/サウンプム)が。同じ商品でも<b>特典付きの棚</b>から取るのがお得。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="phrases container" id="phrases">
+  <div class="sec-label">Useful Phrases</div>
+  <h2 style="font-size:26px;font-weight:900;letter-spacing:-.02em">店頭で使える韓国語 🗣️</h2>
+  <p style="font-size:13.5px;color:var(--ink50);margin-top:8px">指差しでもOK。このページの商品カードの韓国語名をそのまま見せても通じます。</p>
+  <div class="phrase-grid">
+    <div class="phrase"><span class="kr">이거 있어요?</span><span class="romaji">igo isseoyo?</span><span class="jp">これありますか?(カードを見せながら)</span></div>
+    <div class="phrase"><span class="kr">제일 인기 있는 게 뭐예요?</span><span class="romaji">jeil ingi inneun ge mwoyeyo?</span><span class="jp">一番人気なのはどれですか?</span></div>
+    <div class="phrase"><span class="kr">면세 돼요?</span><span class="romaji">myeonse dwaeyo?</span><span class="jp">免税できますか?</span></div>
+    <div class="phrase"><span class="kr">이거 원 플러스 원이에요?</span><span class="romaji">igo won-peulleoseu-won-ieyo?</span><span class="jp">これは1+1ですか?</span></div>
+    <div class="phrase"><span class="kr">테스트 해봐도 돼요?</span><span class="romaji">teseuteu haebwado dwaeyo?</span><span class="jp">試してみてもいいですか?</span></div>
+    <div class="phrase"><span class="kr">봉투 하나 주세요.</span><span class="romaji">bongtu hana juseyo</span><span class="jp">袋を1つください。</span></div>
+  </div>
+</section>
+
+<section class="faq container" id="faq">
+  <div class="sec-label">FAQ</div>
+  <h2>よくある質問</h2>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q">オリーブヤングって何?どこにあるの?</button><div class="faq-a"><p>韓国最大のドラッグストア型ビューティーショップ。日本でいうマツキヨ+ロフトのコスメ版のような存在で、韓国コスメはほぼここで揃います。ソウルだけで数百店舗、明洞・弘大・江南など観光エリアには必ずあります。</p></div></div>
+    <div class="faq-item"><button class="faq-q">日本語は通じる?</button><div class="faq-a"><p>明洞など観光地の大型店には日本語対応スタッフがいることが多いです。それ以外の店舗でも、このサイトの商品カード(韓国語名)をそのまま見せれば問題なく買い物できます。</p></div></div>
+    <div class="faq-item"><button class="faq-q">支払いは日本のクレカでOK?現金は必要?</button><div class="faq-a"><p>VISA/Mastercard/JCBなど日本発行のクレジットカードがほぼ全店で使えます。現金(ウォン)がなくても大丈夫。タッチ決済も普及しています。</p></div></div>
+    <div class="faq-item"><button class="faq-q">液体類は飛行機に持ち込める?</button><div class="faq-a"><p>スーツケース(預け荷物)に入れれば容量制限はほぼ気にしなくてOK。機内持ち込みは100ml以下の容器のみなので、トナーやクレンジングオイルは必ず預け荷物へ。</p></div></div>
+    <div class="faq-item"><button class="faq-q">このサイトはオリーブヤング公式?</button><div class="faq-a"><p>いいえ、当サイトはCJ Olive Young社とは一切関係のない非公式の個人運営ガイドです。価格や在庫は変動するため、最新情報は店頭でご確認ください。</p></div></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <strong>💄 KBEAUTY.jp</strong> — 日本人向けK-Beauty完全ガイド<br>
+    <span class="disc">※当サイトはCJ Olive Young社および各コスメブランドとは関係のない非公式の情報サイトです。掲載価格は目安であり、実際の店頭価格・在庫・セール情報とは異なる場合があります。「オリーブヤング」「올리브영」は各権利者の商標です。<br>© 2026 KBEAUTY.jp / influlink.co</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast">韓国語の商品名をコピーしました 📋</div>
+
+<script>
+const PRODUCTS = [
+ // ─── 現地人の定番 (local) ───
+ {brand:"Torriden",name:"ダイブイン セラム",kr:"토리든 다이브인 세럼",cat:"skincare",price:"18,000",emoji:"💧",bg:"linear-gradient(135deg,#E0F2FE,#EFF6FF)",colls:["local","trend"],rank:{local:1},desc:"韓国人の「とりあえずこれ」保湿セラム。低分子ヒアルロン酸5種で軽いのにしっかり潤う。韓国コスメ界の常連人気1位。"},
+ {brand:"Round Lab",name:"独島(ドクト)トナー",kr:"라운드랩 독도 토너",cat:"skincare",price:"14,000",emoji:"🌊",bg:"linear-gradient(135deg,#E0F7FA,#F0FDFF)",colls:["local"],rank:{local:2},desc:"敏感肌でも使える鎮静トナーの国民的定番。拭き取りにも保湿にも。迷ったらこれと言われる一本。"},
+ {brand:"ILLIYOON",name:"セラミドアト ローション",kr:"일리윤 세라마이드 아토 로션",cat:"body",price:"13,000",emoji:"🧴",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["local"],rank:{local:3},desc:"韓国の家庭に1本はあるボディローション。セラミド配合で乾燥肌・子どもにも。大容量でコスパ最強。"},
+ {brand:"AESTURA",name:"アトバリア365 クリーム",kr:"에스트라 아토베리어365 크림",cat:"skincare",price:"25,000",emoji:"🛡️",bg:"linear-gradient(135deg,#EDE9FE,#F5F3FF)",colls:["local"],desc:"皮膚科でも勧められる保湿バリアクリーム。荒れた肌の立て直しに韓国人が頼る「薬箱コスメ」。"},
+ {brand:"Ma:nyo",name:"ピュア クレンジングオイル",kr:"마녀공장 퓨어 클렌징 오일",cat:"skincare",price:"19,000",emoji:"🫧",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local","jp"],rank:{jp:3},desc:"毛穴の黒ずみケアで有名なクレンジングオイル。日本のアットコスメでも殿堂入りした実力派。"},
+ {brand:"BIOHEAL BOH",name:"プロバイオダーム リフティングクリーム",kr:"바이오힐보 프로바이오덤 리프팅 크림",cat:"skincare",price:"28,000",emoji:"⏫",bg:"linear-gradient(135deg,#FFEDD5,#FFF7ED)",colls:["local","trend"],desc:"「弾力クリーム」として30代以降の韓国人に大人気。ハリ・リフトケア部門の売上上位常連。"},
+ {brand:"MISSHA",name:"ビタシープラス 美容液",kr:"미샤 비타씨플러스 앰플",cat:"skincare",price:"22,000",emoji:"🍊",bg:"linear-gradient(135deg,#FFEDD5,#FEF3C7)",colls:["local"],desc:"ビタミンC誘導体でくすみケア。刺激が少なくビタミンC初心者向けとして定番。"},
+ {brand:"Dr.G",name:"レッドブレミッシュ クリアスージングクリーム",kr:"닥터지 레드 블레미쉬 클리어 수딩 크림",cat:"skincare",price:"23,000",emoji:"🌿",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local"],desc:"赤み・肌荒れ鎮静のジェルクリーム。ニキビ肌の韓国人が夏に必ず常備する定番。"},
+ {brand:"Kundal",name:"ハニー&マカダミア シャンプー",kr:"쿤달 허니 앤 마카다미아 샴푸",cat:"body",price:"12,000",emoji:"🍯",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["local"],desc:"韓国のドラッグストアシャンプーの代表格。香りの種類が豊富で、ホテルに置きたくなる香水級の残り香。"},
+ {brand:"Mediheal",name:"ティーツリー ケアソリューション パック",kr:"메디힐 티트리 케어솔루션 마스크팩",cat:"mask",price:"1,500",emoji:"🍃",bg:"linear-gradient(135deg,#D1FAE5,#ECFDF5)",colls:["local"],desc:"1枚単位で買えるばらまき土産の王様。肌荒れ時のレスキューパックとして韓国人も箱買い。"},
+
+ // ─── 今韓国で話題 (trend) ───
+ {brand:"medicube",name:"コラーゲン ナイトラッピングマスク",kr:"메디큐브 콜라겐 나이트 랩핑 마스크",cat:"mask",price:"32,000",emoji:"🌙",bg:"linear-gradient(135deg,#E0E7FF,#EEF2FF)",colls:["trend","jp"],rank:{trend:1},desc:"塗って寝て翌朝ぷるぷる、SNSでバズった「ラップパック」。品切れ店舗が続出した2025年最大のヒット作。"},
+ {brand:"VT",name:"リードルショット 100",kr:"브이티 리들샷 100",cat:"skincare",price:"32,000",emoji:"💉",bg:"linear-gradient(135deg,#CFFAFE,#ECFEFF)",colls:["trend","jp"],rank:{trend:2,jp:2},desc:"「針美容液」でおなじみ。微細針が浸透をブースト。初心者は50か100から。日韓両国で爆発的ヒット。"},
+ {brand:"Anua",name:"ドクダミ77% スージングトナー",kr:"아누아 어성초 77 수딩 토너",cat:"skincare",price:"20,000",emoji:"🌱",bg:"linear-gradient(135deg,#D9F99D,#F7FEE7)",colls:["trend","jp"],rank:{trend:3},desc:"ドクダミ(オソンチョ)ブームの火付け役。鎮静系トナーで20代に圧倒的人気。日本での売上でも上位。"},
+ {brand:"numbuzin",name:"3番 うるつやトナーパッド",kr:"넘버즈인 3번 토너패드",cat:"mask",price:"22,000",emoji:"3️⃣",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["trend","jp"],desc:"番号で選ぶスキンケア「ノンボジン」の代表作。拭き取り+パックが1枚で完了、時短ケアの新定番。"},
+ {brand:"mixsoon",name:"ビーンエッセンス",kr:"믹순 빈 에센스",cat:"skincare",price:"22,000",emoji:"🫘",bg:"linear-gradient(135deg,#F5F5F4,#FAFAF9)",colls:["trend"],desc:"「もちもちパック洗顔」動画でバズった発酵エッセンス。角質ケアと保湿を同時に。ミニマル成分派に人気。"},
+ {brand:"SKIN1004",name:"マダガスカル センテラアンプル",kr:"스킨1004 마다가스카르 센텔라 앰플",cat:"skincare",price:"19,000",emoji:"🌍",bg:"linear-gradient(135deg,#D1FAE5,#F0FDFA)",colls:["trend"],desc:"シカ(ツボクサ)100%アンプルのロングセラーが再ブレイク。海外でも品薄になった鎮静アンプル。"},
+ {brand:"Abib",name:"ドクダミ カーミングトナーパッド",kr:"아비브 어성초 카밍 토너 패드",cat:"mask",price:"25,000",emoji:"🧖",bg:"linear-gradient(135deg,#E0F2FE,#F0F9FF)",colls:["trend"],desc:"大判で密着するトナーパッド。朝のメイク前パックとして韓国の20〜30代のルーティンに定着。"},
+ {brand:"WAKEMAKE",name:"ソフトブラーリング アイパレット",kr:"웨이크메이크 소프트 블러링 아이 팔레트",cat:"makeup",price:"25,000",emoji:"🎨",bg:"linear-gradient(135deg,#FAE8FF,#FDF4FF)",colls:["trend"],desc:"韓国ドラッグストアのベストセラーアイパレット。捨て色なしのブラーリング質感で新色は即完売。"},
+ {brand:"fwee",name:"プリンポット",kr:"퓌 푸딩팟",cat:"lip",price:"14,000",emoji:"🍮",bg:"linear-gradient(135deg,#FFE4E6,#FFF1F2)",colls:["trend"],desc:"ぷるんとしたプリン質感のリップ&チーク。指でポンポン塗るだけで韓国っぽい「じゅわっと発色」に。"},
+ {brand:"UNOVE",name:"ディープダメージ トリートメントEX",kr:"어노브 딥 대미지 트리트먼트 EX",cat:"body",price:"25,000",emoji:"💇‍♀️",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["trend"],desc:"サロン級と話題のヘアトリートメント。ブリーチ毛の韓国アイドルが使うと紹介され大ヒット。"},
+
+ // ─── 日本人に人気 (jp) ───
+ {brand:"BIODANCE",name:"バイオコラーゲン リアルディープマスク",kr:"바이오던스 바이오 콜라겐 리얼 딥 마스크",cat:"mask",price:"20,000",emoji:"✨",bg:"linear-gradient(135deg,#E0E7FF,#F5F3FF)",colls:["jp","trend"],rank:{jp:1},desc:"透明になるまで一晩貼る「溶けるコラーゲンマスク」。日本人観光客の爆買い対象No.1で、日本のSNSでも常にバズ中。"},
+ {brand:"TIRTIR",name:"マスクフィット レッドクッション",kr:"티르티르 마스크핏 레드쿠션",cat:"makeup",price:"27,000",emoji:"🔴",bg:"linear-gradient(135deg,#FEE2E2,#FEF2F2)",colls:["jp"],rank:{jp:4},desc:"日本のコスメアワードを総なめにしたクッションファンデ。マスクにつかない密着カバーで日本人の定番土産に。"},
+ {brand:"rom&nd",name:"ジューシーラスティングティント",kr:"롬앤 쥬시 래스팅 틴트",cat:"lip",price:"9,900",emoji:"🍑",bg:"linear-gradient(135deg,#FFE4E6,#FFF7ED)",colls:["jp","local"],rank:{jp:5},desc:"日本でも大人気のロムアンド代表ティント。韓国限定色・先行色があるので現地で買う価値大。"},
+ {brand:"CLIO",name:"キルカバー ザニューファンウェア クッション",kr:"클리오 킬커버 더 뉴 파운웨어 쿠션",cat:"makeup",price:"30,000",emoji:"🎯",bg:"linear-gradient(135deg,#E5E7EB,#F9FAFB)",colls:["jp"],desc:"「カバー力のキルカバー」。パフ付きリフィル構成で実質2個分、日本で買うよりかなりお得。"},
+ {brand:"Beauty of Joseon",name:"リリーフサン 米+プロバイオティクス",kr:"조선미녀 맑은쌀 선크림",cat:"suncare",price:"14,000",emoji:"🌾",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["jp","trend"],desc:"「朝鮮美女」の米日焼け止め。世界的にバズったベストセラーで、しっとり艶肌に仕上がると日本人にも大人気。"},
+ {brand:"Round Lab",name:"自作(シラカバ)水分サンクリーム",kr:"라운드랩 자작나무 수분 선크림",cat:"suncare",price:"18,000",emoji:"🌳",bg:"linear-gradient(135deg,#DBEAFE,#EFF6FF)",colls:["jp","local"],desc:"軋まない・白浮きしない水分系日焼け止めの代表。韓国人と日本人の両方から支持される万人向けの一本。"},
+ {brand:"d'Alba",name:"ホワイトトリュフ ファーストスプレーセラム",kr:"달바 화이트 트러플 퍼스트 스프레이 세럼",cat:"skincare",price:"32,000",emoji:"💨",bg:"linear-gradient(135deg,#F3E8FF,#FAF5FF)",colls:["jp"],desc:"シュッと吹きかけるミスト美容液。メイクの上から使える保湿ミストとして日本の百貨店でも話題に。"},
+ {brand:"peripera",name:"インクムード グロイティント",kr:"페리페라 잉크무드 글로이 틴트",cat:"lip",price:"9,000",emoji:"💋",bg:"linear-gradient(135deg,#FFE4E6,#FCE7F3)",colls:["jp"],desc:"1,000円台で買えるプチプラティントの傑作。透け感グロウ発色でまとめ買いのばらまき土産に最適。"},
+ {brand:"dasique",name:"シャドウパレット",kr:"데이지크 섀도우 팔레트",cat:"makeup",price:"34,000",emoji:"🌸",bg:"linear-gradient(135deg,#FCE7F3,#FDF4FF)",colls:["jp"],desc:"繊細ラメと血色カラーで日本人の骨格・肌トーンにも合わせやすいと人気。季節限定パレットは即完売。"},
+ {brand:"MEDIHEAL",name:"マデカソサイド ひんやりパッド",kr:"메디힐 마데카소사이드 흔적 패드",cat:"mask",price:"20,000",emoji:"❄️",bg:"linear-gradient(135deg,#CFFAFE,#F0FDFF)",colls:["jp"],desc:"大判トナーパッドの火付け役。旅行中の日焼け後クールダウンにも使えると日本人リピーター多数。"},
+];
+
+const COLL_META = {
+  local:{title:"🏠 現地人の定番",desc:"観光客向けではなく、韓国人が自分のお金でリピート買いしている「本当の定番」。韓国人の友達に聞いたらまずこれが返ってくる、というアイテムだけを集めました。"},
+  trend:{title:"🔥 今韓国で話題",desc:"SNS(インスタ・TikTok・韓国の口コミアプリ)で今まさにバズっていて、オリヤンの売れ筋ランキングを駆け上がっているアイテム。「今」の韓国が買っているもの。"},
+  jp:{title:"🇯🇵 日本人に特に人気",desc:"日本人観光客の購入データやSNSで特に日本人からの支持が厚いアイテム。「日本で買うより安い」「日本未上陸・限定色がある」ものを優先して選んでいます。"}
+};
+
+let state={coll:"local",cat:"all",q:""};
+const grid=document.getElementById("grid"),empty=document.getElementById("empty");
+
+function render(){
+  const meta=COLL_META[state.coll];
+  document.getElementById("coll-title").textContent=meta.title;
+  document.getElementById("coll-desc").textContent=meta.desc;
+  const q=state.q.trim().toLowerCase();
+  const items=PRODUCTS
+    .filter(p=>p.colls.includes(state.coll))
+    .filter(p=>state.cat==="all"||p.cat===state.cat)
+    .filter(p=>!q||[p.name,p.brand,p.kr].join(" ").toLowerCase().includes(q))
+    .sort((a,b)=>((a.rank&&a.rank[state.coll])||99)-((b.rank&&b.rank[state.coll])||99));
+  grid.innerHTML=items.map(p=>{
+    const rank=p.rank&&p.rank[state.coll];
+    const badges=[
+      p.colls.includes("local")?'<span class="bdg bdg-local">현지인 PICK</span>':"",
+      p.colls.includes("trend")?'<span class="bdg bdg-trend">🔥 HOT</span>':"",
+      p.colls.includes("jp")?'<span class="bdg bdg-jp">🇯🇵 人気</span>':""
+    ].join("");
+    const cats={skincare:"スキンケア",suncare:"日焼け止め",mask:"パック",makeup:"メイク",lip:"リップ",body:"ボディ・ヘア"};
+    return `<article class="card">
+      <div class="card-img" style="background:${p.bg}">${p.emoji}
+        ${rank?`<span class="card-rank">No.${rank}</span>`:""}
+        <div class="card-badges">${badges}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-brand">${p.brand}</div>
+        <div class="card-name">${p.name}</div>
+        <button class="card-kr" data-kr="${p.kr}" title="タップでコピー">${p.kr}</button>
+        <p class="card-desc">${p.desc}</p>
+        <div class="card-foot">
+          <span class="card-price">₩${p.price}<span>目安</span></span>
+          <span class="card-cat">${cats[p.cat]}</span>
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+  empty.style.display=items.length?"none":"block";
+}
+
+document.getElementById("tabs").addEventListener("click",e=>{
+  const t=e.target.closest(".tab");if(!t)return;
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));
+  t.classList.add("on");state.coll=t.dataset.coll;render();
+  document.getElementById("products").scrollIntoView({behavior:"smooth",block:"start"});
+});
+document.getElementById("filters").addEventListener("click",e=>{
+  const c=e.target.closest(".chip");if(!c)return;
+  document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));
+  c.classList.add("on");state.cat=c.dataset.cat;render();
+});
+document.getElementById("search").addEventListener("input",e=>{state.q=e.target.value;render();});
+
+// 韓国語名タップでコピー(店頭で見せる/検索用)
+const toast=document.getElementById("toast");let toastTimer;
+grid.addEventListener("click",e=>{
+  const b=e.target.closest(".card-kr");if(!b)return;
+  navigator.clipboard&&navigator.clipboard.writeText(b.dataset.kr).then(()=>{
+    toast.classList.add("show");clearTimeout(toastTimer);
+    toastTimer=setTimeout(()=>toast.classList.remove("show"),1800);
+  });
+});
+
+document.querySelectorAll(".faq-q").forEach(q=>q.addEventListener("click",()=>{
+  const item=q.parentElement,a=item.querySelector(".faq-a"),open=item.classList.toggle("open");
+  a.style.maxHeight=open?a.scrollHeight+"px":"0";
+}));
+
+render();
+</script>
+</body>
+</html>
