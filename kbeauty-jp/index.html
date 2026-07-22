@@ -219,6 +219,35 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .footer-in .disc{font-size:11px;color:var(--ink35);max-width:720px;margin-top:10px;line-height:1.9}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;font-size:12.5px;padding:10px 20px;border-radius:99px;opacity:0;transition:.25s;pointer-events:none;z-index:99}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* KR NAME ROW + PHOTO LINK */
+.card-kr-row{display:flex;gap:6px;align-items:center;margin-bottom:8px}
+.card-kr-row .card-kr{margin-bottom:0}
+.card-photo{font-size:10.5px;font-weight:600;color:var(--ink50);border:1px solid var(--ink15);border-radius:7px;padding:4px 8px;flex-shrink:0;transition:.13s;white-space:nowrap;background:#fff}
+.card-photo:hover{border-color:var(--green);color:var(--green-d)}
+
+/* SKIN TYPE RECOMMENDER */
+.skin-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.skin-tabs{grid-template-columns:1fr}}
+.skin-tab{border:1.5px solid var(--ink15);border-radius:14px;background:#fff;padding:16px 18px;text-align:left;transition:.15s;display:flex;flex-direction:column;gap:5px}
+.skin-tab:hover{border-color:var(--green)}
+.skin-tab.on{border-color:var(--green);background:var(--green-t);box-shadow:var(--sh-sm)}
+.skin-tab .st-emoji{font-size:24px}
+.skin-tab b{font-size:14.5px;font-weight:800}
+.skin-tab small{font-size:11px;color:var(--ink50);line-height:1.6}
+.skin-note{margin-top:14px;font-size:12.5px;color:var(--ink70);background:var(--green-t);border:1px solid rgba(11,163,96,.18);border-radius:10px;padding:10px 14px;line-height:1.75}
+.skin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:14px}
+.sk-card{display:flex;gap:12px;align-items:center;border:1px solid var(--ink15);border-radius:12px;padding:10px 12px;background:#fff;transition:.15s}
+.sk-card:hover{border-color:var(--ink35);box-shadow:var(--sh-sm)}
+.sk-visual{width:46px;height:46px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px}
+.sk-info{min-width:0;display:flex;flex-direction:column;gap:2px;flex:1}
+.sk-brand{font-size:10px;font-weight:700;color:var(--ink35);text-transform:uppercase;letter-spacing:.04em}
+.sk-name{font-size:12.5px;font-weight:700;line-height:1.4}
+.sk-kr{font-size:11px;color:var(--green-d);font-family:'Noto Sans KR',sans-serif;cursor:pointer;background:none;text-align:left;padding:0}
+.sk-kr::before{content:"🇰🇷 "}
+.sk-kr:hover{text-decoration:underline}
+.sk-card .card-photo{margin-left:auto}
+.skin-more{margin-top:12px;font-size:11.5px;color:var(--ink35)}
 </style>
 </head>
 <body>
@@ -247,7 +276,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
       <a class="btn-o" href="#tips">💡 買い物のコツ</a>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><b>49</b><span>厳選アイテム</span></div>
+      <div class="hstat"><b>136</b><span>厳選アイテム</span></div>
       <div class="hstat"><b>100<i>%</i></b><span>出典つき選定</span></div>
       <div class="hstat"><b>100<i>%</i></b><span>韓国語表記付き</span></div>
     </div>
@@ -288,6 +317,19 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
   </div>
   <div class="brand-chips" id="brandChips"></div>
   <div class="brand-spotlight" id="brandSpot"></div>
+</section>
+
+<!-- ── 肌タイプ別おすすめ ── -->
+<section class="feature container" id="skintype">
+  <div class="feature-head">
+    <div class="sec-label">Skin Type</div>
+    <h2>肌タイプ別おすすめ 🧖‍♀️</h2>
+    <p>肌タイプを選ぶと、当サイト掲載アイテムの中からタイプに合うスキンケア・日焼け止め・パックだけを表示します。オリーブヤングの棚の前で迷ったときの「自分用フィルター」としてどうぞ。</p>
+  </div>
+  <div class="skin-tabs" id="skinTabs"></div>
+  <div class="skin-note" id="skinNote"></div>
+  <div class="skin-grid" id="skinGrid"></div>
+  <div class="skin-more" id="skinMore"></div>
 </section>
 
 <div class="tabs-wrap">
@@ -345,7 +387,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
         <span>日本で韓国コスメがよく売れるセール。マーケティング会社の売上データ分析(2025)を参照しています。</span>
       </div>
     </div>
-    <p class="sources-note">※ 価格はセット構成・時期・セールにより頻繁に変わるため、<strong>あえて表示していません</strong>。正確な価格・在庫は店頭またはオリーブヤング公式アプリでご確認ください。ランキングは各出典の集計時点のもので、常に最新とは限りません。当サイトはオリーブヤングおよび各ブランドとは関係のない非公式の情報サイトです。</p>
+    <p class="sources-note">※ 商品写真は著作権保護のため当サイトには掲載せず、各カードの「📷 写真」から画像検索結果(実際の購入者の写真など)をご覧いただけます。※ 価格はセット構成・時期・セールにより頻繁に変わるため、<strong>あえて表示していません</strong>。正確な価格・在庫は店頭またはオリーブヤング公式アプリでご確認ください。ランキングは各出典の集計時点のもので、常に最新とは限りません。当サイトはオリーブヤングおよび各ブランドとは関係のない非公式の情報サイトです。</p>
   </section>
 </main>
 
@@ -465,7 +507,143 @@ const PRODUCTS = [
  {brand:"d'Alba",name:"ホワイトトリュフ スプレーセラム",kr:"달바 화이트 트러플 퍼스트 스프레이 세럼",cat:"skincare",emoji:"💨",bg:"linear-gradient(135deg,#F3E8FF,#FAF5FF)",colls:["jp"],src:"日本の百貨店でも話題のミスト美容液",desc:"メイクの上からも使える保湿スプレー美容液。"},
  {brand:"Mediheal",name:"ティーツリー ケアソリューションマスク",kr:"메디힐 티트리 케어솔루션 마스크팩",cat:"mask",emoji:"🍃",bg:"linear-gradient(135deg,#D1FAE5,#ECFDF5)",colls:["jp"],src:"ばらまき土産の定番シートマスク",desc:"1枚から買える鎮静シートマスク。まとめ買いのお土産にも。"},
  {brand:"SKIN1004",name:"マダガスカル センテラ 日焼け止め",kr:"스킨1004 마다가스카르 센텔라 선크림",cat:"suncare",emoji:"☀️",bg:"linear-gradient(135deg,#D1FAE5,#F0FDFA)",colls:["jp","trend"],src:"シカ由来成分の鎮静サンケアとして海外でも人気",desc:"ツボクサ由来成分配合で肌をいたわる日焼け止め。"},
+
+ // ─── スキンケア 追加 ───
+ {brand:"Anua",name:"桃70% ナイアシン セラム",kr:"아누아 복숭아 70 나이아신 세럼",cat:"skincare",skin:["oily","combo"],emoji:"🍑",bg:"linear-gradient(135deg,#FFE4E6,#FFF7ED)",colls:["trend","jp"],src:"Qoo10 Japanでも人気のトーンケアセラム",desc:"桃エキス+ナイアシンアミドでキメ・くすみをケア。みずみずしく軽い質感で、べたつきが苦手な肌にも。"},
+ {brand:"Anua",name:"PDRN ヒアルロン酸 カプセル100 セラム",kr:"아누아 PDRN 히알루론산 캡슐 100 세럼",cat:"skincare",skin:["dry","combo"],emoji:"🧬",bg:"linear-gradient(135deg,#D9F99D,#F7FEE7)",colls:["trend"],src:"2026注目のPDRN(サーモンDNA)トレンドの人気セラム",desc:"PDRN×ヒアルロン酸のハリ・保湿セラム。成分トレンドの中心にいる話題作。"},
+ {brand:"COSRX",name:"ロウpH グッドモーニング ジェルクレンザー",kr:"코스알엑스 로우 pH 굿모닝 젤 클렌저",cat:"skincare",skin:["oily","combo"],emoji:"🌅",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["local"],src:"海外でも定番の弱酸性ジェル洗顔",desc:"弱酸性でつっぱりにくい朝洗顔の定番。皮脂が気になる肌のデイリーに。"},
+ {brand:"Round Lab",name:"1025 独島 クレンザー",kr:"라운드랩 1025 독도 클렌저",cat:"skincare",skin:["dry","combo","oily"],emoji:"🫧",bg:"linear-gradient(135deg,#E0F7FA,#F0FDFF)",colls:["local"],desc:"きめ細かい泡でやさしく洗える独島ラインの洗顔フォーム。トナーとライン使いする人が多い定番。"},
+ {brand:"Round Lab",name:"1025 独島 ローション",kr:"라운드랩 1025 독도 로션",cat:"skincare",skin:["dry","combo"],emoji:"🥛",bg:"linear-gradient(135deg,#E0F7FA,#F0FDFF)",colls:["local"],desc:"軽いのにしっとり続く乳液。ベタつかない保湿でオールシーズン使いやすい。"},
+ {brand:"Beauty of Joseon",name:"グロウセラム(プロポリス+ナイアシンアミド)",kr:"조선미녀 글로우 세럼 프로폴리스 나이아신아마이드",cat:"skincare",skin:["dry","combo"],emoji:"🍯",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["trend","jp"],src:"米Amazonでもヒットしたグローセラム",desc:"プロポリスのツヤと保湿で「艶肌」に導く人気セラム。"},
+ {brand:"SKIN1004",name:"マダガスカル センテラ トーニングトナー",kr:"스킨1004 마다가스카르 센텔라 토닝 토너",cat:"skincare",skin:["oily","combo"],emoji:"🌍",bg:"linear-gradient(135deg,#D1FAE5,#F0FDFA)",colls:["local"],desc:"ツボクサ由来成分+マイルドな角質ケアで肌を整えるトナー。"},
+ {brand:"Ma:nyo",name:"ビフィダ バイオーム コンプレックス アンプル",kr:"마녀공장 비피다 바이옴 컴플렉스 앰플",cat:"skincare",skin:["dry","combo"],emoji:"🔬",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local"],desc:"発酵ビフィダでバリアケア。ゆらぎがちな肌の土台を整える人気アンプル。"},
+ {brand:"Ma:nyo",name:"ガラク ナイアシン 2.0 エッセンス",kr:"마녀공장 갈락 나이아신 2.0 에센스",cat:"skincare",skin:["combo","oily"],emoji:"✨",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local"],desc:"ガラクトミセス+ナイアシンアミドでツヤ・トーンケア。「水光肌」系の定番エッセンス。"},
+ {brand:"Torriden",name:"ダイブイン スージングクリーム",kr:"토리든 다이브인 수딩 크림",cat:"skincare",skin:["dry","combo","oily"],emoji:"💧",bg:"linear-gradient(135deg,#E0F2FE,#EFF6FF)",colls:["local"],desc:"ジェルタイプの水分クリーム。ダイブインラインで揃える人の仕上げの定番。"},
+ {brand:"ETUDE",name:"スンジョン 水分鎮静クリーム",kr:"에뛰드 순정 수분 진정 크림",cat:"skincare",skin:["dry"],emoji:"🌸",bg:"linear-gradient(135deg,#FCE7F3,#FDF4FF)",colls:["local","jp"],desc:"敏感肌向け「スンジョン」ラインの鎮静クリーム。プチプラで学生にも人気の定番。"},
+ {brand:"innisfree",name:"レチノール シカ アンプル",kr:"이니스프리 레티놀 시카 앰플",cat:"skincare",skin:["oily","combo"],emoji:"🌿",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local","trend"],src:"レチノール入門として韓国でヒット",desc:"低刺激設計のレチノール×シカ。トラブル跡・キメケアの入門アンプルとして人気。"},
+ {brand:"celimax",name:"ザ リアル ノニ エナジー アンプル",kr:"셀리맥스 더 리얼 노니 에너지 앰플",cat:"skincare",skin:["dry"],emoji:"🍈",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local"],desc:"ノニエキス配合の保湿アンプル。乾燥による小じわ・ツヤ不足のケアに。"},
+ {brand:"Klairs",name:"サプル プレパレーション フェイシャルトナー",kr:"클레어스 서플 프레퍼레이션 페이셜 토너",cat:"skincare",skin:["dry"],emoji:"🌙",bg:"linear-gradient(135deg,#E0E7FF,#EEF2FF)",colls:["local"],desc:"とろみのある低刺激トナー。重ね付けでしっとり、乾燥・敏感肌の定番。"},
+ {brand:"SOME BY MI",name:"AHA·BHA·PHA 30デイズ ミラクルトナー",kr:"썸바이미 아하바하파하 30일 미라클 토너",cat:"skincare",skin:["oily"],emoji:"🧪",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["jp"],src:"グローバルで大ヒットした角質ケアトナー",desc:"AHA/BHA/PHAで角質・皮脂をケア。ざらつき・毛穴づまりが気になる肌に。"},
+ {brand:"medicube",name:"トリプル コラーゲンセラム 4.0",kr:"메디큐브 트리플 콜라겐 세럼 4.0",cat:"skincare",skin:["dry","combo"],emoji:"💠",bg:"linear-gradient(135deg,#E0E7FF,#EEF2FF)",colls:["trend"],desc:"高濃度コラーゲンのハリケアセラム。ラッピングマスクと合わせて「ガラス肌」ルーティンに。"},
+ {brand:"IOPE",name:"レチノール エキスパート 0.1%",kr:"아이오페 레티놀 엑스퍼트 0.1%",cat:"skincare",skin:["combo","oily"],emoji:"🎓",bg:"linear-gradient(135deg,#E5E7EB,#F9FAFB)",colls:["local"],src:"韓国レチノール市場を代表するロングセラー",desc:"シワ・ハリケアのレチノール美容液。段階別に濃度を選べるシリーズの中心。"},
+ {brand:"Wellage",name:"リアル ヒアルロニック ブルー100 アンプル",kr:"웰라쥬 리얼 히알루로닉 블루 100 앰플",cat:"skincare",skin:["dry"],emoji:"🔵",bg:"linear-gradient(135deg,#DBEAFE,#EFF6FF)",colls:["local"],desc:"使い切りカプセルでも有名なヒアルロン酸ブランドの高保湿アンプル。"},
+ {brand:"Bring Green",name:"ティーツリー シカ スージングトナー",kr:"브링그린 티트리 시카 수딩 토너",cat:"skincare",skin:["oily"],emoji:"🌲",bg:"linear-gradient(135deg,#D1FAE5,#ECFDF5)",colls:["local"],src:"オリーブヤング発ブランドの鎮静トナー",desc:"ティーツリー×シカでトラブル期の肌を整える大容量トナー。"},
+ {brand:"Banila Co",name:"クリーン イット ゼロ クレンジングバーム",kr:"바닐라코 클린 잇 제로 클렌징 밤",cat:"skincare",skin:["dry","combo","oily"],emoji:"🍧",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local","jp"],src:"世界累計販売で知られるクレンジングバームの代名詞",desc:"シャーベット状のバームがメイクを素早くオフ。日本のドラッグストアでも定番。"},
+ {brand:"heimish",name:"オール クリーン バーム",kr:"헤이미쉬 올 클린 밤",cat:"skincare",skin:["dry","combo","oily"],emoji:"🌼",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["jp"],desc:"W洗顔向けのマイルドなクレンジングバーム。日本の口コミサイトでも定番人気。"},
+ {brand:"S.NATURE",name:"アクア スクワラン モイスチャークリーム",kr:"에스네이처 아쿠아 스쿠알란 수분크림",cat:"skincare",skin:["dry"],emoji:"🐋",bg:"linear-gradient(135deg,#E0F2FE,#EFF6FF)",colls:["local"],desc:"スクワラン配合のしっとり系水分クリーム。乾燥肌の「最初の1個」に選ばれやすい定番。"},
+ {brand:"HaruHaru Wonder",name:"ブラックライス ヒアルロニック トナー",kr:"하루하루원더 블랙라이스 히알루로닉 토너",cat:"skincare",skin:["combo"],emoji:"🌾",bg:"linear-gradient(135deg,#F5F5F4,#FAFAF9)",colls:["local"],desc:"黒米発酵エキスのしっとりトナー。低刺激で香りも人気のロングセラー。"},
+ {brand:"VT",name:"シカ クリーム",kr:"브이티 시카 크림",cat:"skincare",skin:["oily","combo"],emoji:"🍀",bg:"linear-gradient(135deg,#CFFAFE,#ECFEFF)",colls:["jp"],src:"日本のバラエティショップでも定番のシカケア",desc:"ゆらぎ肌を整えるVTの看板シカライン。リードルショット後の保湿にも。"},
+ {brand:"ILLIYOON",name:"セラミド アト 集中クリーム",kr:"일리윤 세라마이드 아토 집중 크림",cat:"skincare",skin:["dry"],emoji:"🧈",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["local"],src:"敏感・乾燥肌向けセラミドクリームの国民的定番",desc:"高保湿セラミドカプセルでバリアケア。顔にも体にも使える家族の常備クリーム。"},
+ {brand:"MISSHA",name:"タイムレボリューション アルテミシア エッセンス",kr:"미샤 타임 레볼루션 아르테미시아 에센스",cat:"skincare",skin:["dry"],emoji:"🌿",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local"],desc:"ヨモギ(アルテミシア)エキスの鎮静エッセンス。ゆらいだ肌を落ち着かせる定番。"},
+ {brand:"COSRX",name:"ザ ビタミンC 23 セラム",kr:"코스알엑스 더 비타민C 23 세럼",cat:"skincare",skin:["combo","oily"],emoji:"🍋",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["trend"],src:"SNS発で世界的にヒットした高濃度ビタミンC",desc:"純粋ビタミンC23%のトーンケアセラム。くすみ・スポット集中ケアに。"},
+ {brand:"COSRX",name:"アドバンスド スネイル92 オールインワンクリーム",kr:"코스알엑스 어드밴스드 스네일 92 올인원 크림",cat:"skincare",skin:["dry","combo"],emoji:"🐌",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["jp"],desc:"ムチンエッセンスとライン使いされる保湿クリーム。海外人気の高いロングセラー。"},
+ {brand:"LANEIGE",name:"ウォーターバンク ブルー ヒアルロニック クリーム",kr:"라네즈 워터뱅크 블루 히알루로닉 크림",cat:"skincare",skin:["dry","combo"],emoji:"💦",bg:"linear-gradient(135deg,#DBEAFE,#EFF6FF)",colls:["jp"],desc:"ラネージュの看板保湿ライン。みずみずしいうるおいが続く水分クリーム。"},
+ {brand:"Dr.Jart+",name:"シカペア クリーム",kr:"닥터자르트 시카페어 크림",cat:"skincare",skin:["oily","combo"],emoji:"🐯",bg:"linear-gradient(135deg,#FFEDD5,#FFF7ED)",colls:["jp"],src:"日本でも人気の「シカクリーム」ブームの代表格",desc:"赤み・ゆらぎをケアするシカクリームの代名詞的存在。"},
+ {brand:"CNP",name:"プロポリス エナジー アクティブ アンプル",kr:"CNP 프로폴리스 에너지 액티브 앰플",cat:"skincare",skin:["dry","combo"],emoji:"🐝",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["local"],src:"皮膚科系ブランドの代表アンプル",desc:"プロポリスのツヤ・栄養ケア。ミスト版と合わせて使う人も多い定番。"},
+ {brand:"SUNGBOON EDITOR",name:"グリーントマト ポア アンプル",kr:"성분에디터 그린토마토 모공 앰플",cat:"skincare",skin:["oily","combo"],emoji:"🍅",bg:"linear-gradient(135deg,#D9F99D,#F7FEE7)",colls:["trend"],src:"毛穴ケアアンプルとしてSNSでヒット",desc:"未熟トマトエキスで毛穴・キメをケア。引き締め系アンプルの人気作。"},
+ {brand:"ONE THING",name:"ドクダミ エキス",kr:"원씽 어성초 추출물",cat:"skincare",skin:["oily"],emoji:"🧴",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local"],desc:"単一成分エキスのパイオニア。コットンパックや化粧水づくりに使う人も多い。"},
+ {brand:"Goodal",name:"青みかん ビタC 集中ケアクリーム",kr:"구달 청귤 비타C 잡티케어 크림",cat:"skincare",skin:["combo"],emoji:"🍊",bg:"linear-gradient(135deg,#FFEDD5,#FEF3C7)",colls:["local"],desc:"人気の青みかんセラムとライン使いするトーンケアクリーム。"},
+ {brand:"beplain",name:"緑豆 弱酸性 クレンジングフォーム",kr:"비플레인 녹두 약산성 클렌징폼",cat:"skincare",skin:["oily","combo"],emoji:"🫛",bg:"linear-gradient(135deg,#D9F99D,#F7FEE7)",colls:["local"],desc:"緑豆エキスの低刺激洗顔。つっぱらずマイルドに皮脂オフ。"},
+ {brand:"innisfree",name:"グリーンティー シード セラム",kr:"이니스프리 그린티 씨드 세럼",cat:"skincare",skin:["dry","combo"],emoji:"🍵",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local"],desc:"チェジュ緑茶の保湿セラム。長年愛されるイニスフリーの看板。"},
+ {brand:"MISSHA",name:"タイムレボリューション ナイトリペア アンプル",kr:"미샤 타임 레볼루션 나이트 리페어 앰플",cat:"skincare",skin:["dry"],emoji:"🔮",bg:"linear-gradient(135deg,#F3E8FF,#FAF5FF)",colls:["jp"],src:"「紫アンプル」として日本でも知られるロングセラー",desc:"発酵成分のナイトケアアンプル。ハリ・ツヤの底上げに。"},
+ {brand:"HANYUL",name:"若ヨモギ 水分鎮静クリーム",kr:"한율 어린쑥 수분 진정 크림",cat:"skincare",skin:["dry","combo"],emoji:"🌱",bg:"linear-gradient(135deg,#DCFCE7,#ECFDF5)",colls:["local"],desc:"若ヨモギエキスでしっとり鎮静。韓方系ブランドの人気クリーム。"},
+ {brand:"A'PIEU",name:"マデカソ シカクリーム",kr:"어퓨 마데카소 크림",cat:"skincare",skin:["dry","combo"],emoji:"🩹",bg:"linear-gradient(135deg,#D1FAE5,#ECFDF5)",colls:["jp"],src:"日本のドラッグストアでも販売される定番シカクリーム",desc:"プチプラで大容量のシカクリーム。学生・初心者の定番。"},
+
+ // ─── 日焼け止め 追加 ───
+ {brand:"SKIN1004",name:"ヒアル-シカ ウォーターフィット サンセラム",kr:"스킨1004 히알루시카 워터핏 선세럼",cat:"suncare",skin:["dry","combo","oily"],emoji:"🕶️",bg:"linear-gradient(135deg,#D1FAE5,#F0FDFA)",colls:["trend","jp"],src:"軽い使用感のサンセラムとして世界的ヒット",desc:"美容液感覚でスルスル塗れる日焼け止め。白浮き・きしみが苦手な人に。"},
+ {brand:"Dr.G",name:"グリーン マイルドアップ サンプラス",kr:"닥터지 그린 마일드 업 선플러스",cat:"suncare",skin:["dry","combo"],emoji:"🟢",bg:"linear-gradient(135deg,#DCFCE7,#ECFDF5)",colls:["local"],src:"敏感肌向け日焼け止めの韓国定番",desc:"トーンアップしすぎない自然な仕上がり。低刺激設計で敏感肌の定番サンケア。"},
+ {brand:"CELL FUSION C",name:"レーザー サンスクリーン 100",kr:"셀퓨전씨 레이저 선스크린 100",cat:"suncare",skin:["oily","combo"],emoji:"⚡",bg:"linear-gradient(135deg,#E0F2FE,#EFF6FF)",colls:["local"],src:"皮膚科・エステサロン発の定番サンケア",desc:"さらっと軽いエッセンスタイプ。ベタつきにくく化粧下地にも使いやすい。"},
+ {brand:"CELL FUSION C",name:"トーニング サンスクリーン 100",kr:"셀퓨전씨 토닝 선스크린 100",cat:"suncare",skin:["combo"],emoji:"🌤️",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local"],desc:"自然なトーンアップで「日焼け止め+下地」を1本に。素肌をきれいに見せたい日に。"},
+ {brand:"AHC",name:"ナチュラル パーフェクション フレッシュ サンスティック",kr:"AHC 내추럴 퍼펙션 프레쉬 선스틱",cat:"suncare",skin:["dry","combo","oily"],emoji:"🖍️",bg:"linear-gradient(135deg,#E0E7FF,#EEF2FF)",colls:["local","jp"],src:"塗り直し用サンスティックの定番人気",desc:"メイクの上からも塗り直せるスティックタイプ。旅行・外回りの必需品。"},
+ {brand:"MISSHA",name:"オールアラウンド セーフブロック エッセンスサン",kr:"미샤 올 어라운드 세이프 블록 에센스 선",cat:"suncare",skin:["dry","combo"],emoji:"🧡",bg:"linear-gradient(135deg,#FFEDD5,#FFF7ED)",colls:["local"],src:"長年愛される韓国日焼け止めのロングセラー",desc:"エッセンスのようにしっとり塗れる定番サンケア。"},
+
+ // ─── パック・マスク 追加 ───
+ {brand:"Abib",name:"ドクダミ ステッカーマスク",kr:"아비브 어성초 껌딱지 마스크",cat:"mask",skin:["oily","combo"],emoji:"🍃",bg:"linear-gradient(135deg,#E0F2FE,#F0F9FF)",colls:["trend","local"],src:"「껌딱지(ぴったり密着)」の愛称でヒット",desc:"薄膜シートがぴたっと密着する鎮静マスク。毛穴・赤みケアの人気作。"},
+ {brand:"Mediheal",name:"マデカソサイド リペアパッド",kr:"메디힐 마데카소사이드 흔적 패드",cat:"mask",skin:["oily","combo"],emoji:"🩹",bg:"linear-gradient(135deg,#D1FAE5,#ECFDF5)",colls:["local","trend"],src:"トラブル跡ケアのパッドとしてヒット",desc:"トラブル跡・キメをケアする大判トナーパッド。"},
+ {brand:"Mediheal",name:"N.M.F アクアリング アンプルマスク",kr:"메디힐 N.M.F 아쿠아링 앰플 마스크",cat:"mask",skin:["dry","combo"],emoji:"💧",bg:"linear-gradient(135deg,#DBEAFE,#EFF6FF)",colls:["local","jp"],src:"累計販売数で知られる国民的シートマスク",desc:"たっぷり美容液の高保湿マスク。「迷ったらこれ」の定番。"},
+ {brand:"papa recipe",name:"ボムビ ハニーマスク",kr:"파파레서피 봄비 꿀단지 마스크",cat:"mask",skin:["dry"],emoji:"🍯",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["jp"],src:"日本でも大ヒットした「蜂蜜マスク」",desc:"はちみつ保湿のしっとりマスク。乾燥期のご褒美ケアとお土産の定番。"},
+ {brand:"VT",name:"シカ デイリー スージングマスク",kr:"브이티 시카 데일리 수딩 마스크",cat:"mask",skin:["dry","combo","oily"],emoji:"📦",bg:"linear-gradient(135deg,#CFFAFE,#ECFEFF)",colls:["local","jp"],src:"毎日使える大容量マスクの定番",desc:"1枚ずつ取り出せる30枚入りデイリーマスク。コスパ重視派に。"},
+ {brand:"SKINFOOD",name:"キャロット カロチン カーミング ウォーターパッド",kr:"스킨푸드 캐롯 카로틴 카밍 워터패드",cat:"mask",skin:["oily"],emoji:"🥕",bg:"linear-gradient(135deg,#FFEDD5,#FFF7ED)",colls:["local"],src:"鎮静パッドブームの人気作",desc:"にんじんエキスのひんやり鎮静パッド。日焼け後・ゆらぎ期のケアに。"},
+ {brand:"COSRX",name:"アクネ ピンプル マスターパッチ",kr:"코스알엑스 아크네 핌플 마스터 패치",cat:"mask",skin:["oily"],emoji:"🎯",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["local","jp"],src:"ニキビパッチの世界的定番",desc:"貼って集中ケアするハイドロコロイドパッチ。ポーチ常備の定番。"},
+ {brand:"Dermatory",name:"ハイポアレルジェニック シカ ガーゼパッド",kr:"더마토리 하이포알러제닉 시카 거즈 패드",cat:"mask",skin:["oily","combo"],emoji:"🏥",bg:"linear-gradient(135deg,#E0F2FE,#F0F9FF)",colls:["local"],desc:"ガーゼ素材でやさしく拭き取れる鎮静パッド。"},
+ {brand:"Anua",name:"ドクダミ77 トナーパッド",kr:"아누아 어성초 77 토너 패드",cat:"mask",skin:["oily"],emoji:"🌱",bg:"linear-gradient(135deg,#D9F99D,#F7FEE7)",colls:["trend"],desc:"トナーで人気のドクダミラインのパッド版。朝パック・部分ケアに。"},
+ {brand:"LANEIGE",name:"ウォーター スリーピングマスク EX",kr:"라네즈 워터 슬리핑 마스크 EX",cat:"mask",skin:["dry","combo"],emoji:"😴",bg:"linear-gradient(135deg,#DBEAFE,#EFF6FF)",colls:["jp"],src:"「寝ている間の保湿」を定番化したロングセラー",desc:"塗って寝るだけのナイトマスク。翌朝のしっとり感で長年人気。"},
+ {brand:"JMsolution",name:"ハニーラックス ロイヤルプロポリス マスク",kr:"제이엠솔루션 꿀광 로얄 프로폴리스 마스크",cat:"mask",skin:["dry"],emoji:"👑",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["jp"],src:"まとめ買い土産の定番マスク",desc:"プロポリスのツヤ系マスク。箱買いしやすい価格でばらまき土産に。"},
+ {brand:"SKINFOOD",name:"ブラックシュガー マスク ウォッシュオフ",kr:"스킨푸드 블랙슈가 마스크 워시오프",cat:"mask",skin:["oily","combo"],emoji:"🟤",bg:"linear-gradient(135deg,#F5F5F4,#FAFAF9)",colls:["local"],src:"20年近く愛されるスクラブマスクの古典",desc:"黒糖スクラブで角質ケア。つるんとした洗い上がりのロングセラー。"},
+ {brand:"innisfree",name:"スーパーヴォルカニック ポアクレイマスク",kr:"이니스프리 슈퍼 화산송이 모공 클레이 마스크",cat:"mask",skin:["oily"],emoji:"🌋",bg:"linear-gradient(135deg,#FFEDD5,#FFF7ED)",colls:["local"],src:"毛穴クレイマスクの定番ロングセラー",desc:"チェジュ火山灰(ソンイ)が皮脂を吸着。毛穴の大掃除に。"},
+ {brand:"COSRX",name:"ワンステップ オリジナル クリアパッド",kr:"코스알엑스 원스텝 오리지널 클리어 패드",cat:"mask",skin:["oily"],emoji:"1️⃣",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["local"],desc:"BHA配合の拭き取りパッド。皮脂・角質ケアの定番。"},
+
+ // ─── メイク 追加 ───
+ {brand:"rom&nd",name:"ベター ザン パレット",kr:"롬앤 베러 댄 팔레트",cat:"makeup",emoji:"🎨",bg:"linear-gradient(135deg,#FFE4E6,#FFF7ED)",colls:["jp"],src:"日本のバラエティショップでも人気のパレット",desc:"捨て色のない配色で初心者にも使いやすい10色パレット。"},
+ {brand:"hince",name:"トゥルーディメンション ラディアンスバーム",kr:"힌스 트루 디멘션 래디언스 밤",cat:"makeup",emoji:"🌟",bg:"linear-gradient(135deg,#F5F5F4,#FAFAF9)",colls:["jp","trend"],src:"「練りハイライト」ブームを作った人気作",desc:"自然なツヤを仕込むバームハイライター。日本でも人気のhince代表作。"},
+ {brand:"WAKEMAKE",name:"ソフト ブラーリング アイパレット",kr:"웨이크메이크 소프트 블러링 아이팔레트",cat:"makeup",emoji:"🖼️",bg:"linear-gradient(135deg,#FAE8FF,#FDF4FF)",colls:["local","jp"],src:"オリーブヤング発メイクブランドの人気パレット",desc:"ふんわり発色の9色パレット。ブルベ・イエベ別の豊富な展開も魅力。"},
+ {brand:"unleashia",name:"ゲット ジュエル パレット",kr:"언리시아 겟 주얼 팔레트",cat:"makeup",emoji:"💎",bg:"linear-gradient(135deg,#F3E8FF,#FAF5FF)",colls:["jp","trend"],src:"ざくざくグリッターの代名詞としてSNSでヒット",desc:"輝きの強いグリッターの代表格。涙袋メイクの必需品として人気。"},
+ {brand:"too cool for school",name:"アートクラス バイロダン シェーディング",kr:"투쿨포스쿨 아트클래스 바이 로댕 쉐딩",cat:"makeup",emoji:"🗿",bg:"linear-gradient(135deg,#F5F5F4,#FAFAF9)",colls:["jp","local"],src:"シェーディングの定番として長年人気",desc:"3色ブレンドで自然な陰影。「迷ったらこれ」の定番シェーディング。"},
+ {brand:"eSpoir",name:"プロテーラー ビーグロウ クッション",kr:"에스쁘아 프로 테일러 비글로우 쿠션",cat:"makeup",emoji:"🫧",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local"],src:"ツヤクッションの人気定番",desc:"素肌感のあるツヤ仕上がりのクッション。オフィスメイクにも。"},
+ {brand:"fwee",name:"リップ&チーク ブラーリー プディングポット",kr:"퓌 립앤치크 블러리 푸딩팟",cat:"makeup",emoji:"🍮",bg:"linear-gradient(135deg,#FFE4E6,#FFF1F2)",colls:["trend","jp"],src:"「プディングポット」としてSNSで大ヒット",desc:"ぷにぷに質感のリップ&チーク。指でポンポン塗るだけの時短メイク。"},
+ {brand:"BBIA",name:"ラスト オート ジェルアイライナー",kr:"삐아 라스트 오토 젤 아이라이너",cat:"makeup",emoji:"✏️",bg:"linear-gradient(135deg,#E5E7EB,#F9FAFB)",colls:["local","jp"],src:"にじみにくいジェルライナーの定番",desc:"するする描けてにじみにくいプチプラライナー。カラー展開も豊富。"},
+ {brand:"CLIO",name:"キル ラッシュ スーパープルーフ マスカラ",kr:"클리오 킬 래쉬 슈퍼프루프 마스카라",cat:"makeup",emoji:"👁️",bg:"linear-gradient(135deg,#E5E7EB,#F9FAFB)",colls:["local"],desc:"カール維持とお湯オフを両立した定番マスカラ。"},
+ {brand:"MISSHA",name:"M マジック クッション",kr:"미샤 M 매직 쿠션",cat:"makeup",emoji:"🪄",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local"],src:"クッションファンデ普及期からのロングセラー",desc:"手頃な価格で試せるクッションの古典。旅行用にも。"},
+ {brand:"ETUDE",name:"ドローイング アイブロウ ペンシル",kr:"에뛰드 드로잉 아이브로우",cat:"makeup",emoji:"🖊️",bg:"linear-gradient(135deg,#FCE7F3,#FDF4FF)",colls:["jp","local"],src:"眉ペンシルの定番として世界的ロングセラー",desc:"描きやすい極細芯とプチプラで「何本もリピ買い」される定番。"},
+ {brand:"I'M MEME",name:"アイム マルチスティック",kr:"아임미미 멀티 스틱",cat:"makeup",emoji:"🖇️",bg:"linear-gradient(135deg,#FFE4E6,#FFF1F2)",colls:["local"],desc:"アイ・チーク・リップを1本で。ポーチが軽くなる時短スティック。"},
+
+ // ─── リップ 追加 ───
+ {brand:"MUZIGAE MANSION",name:"オブジェ リキッド",kr:"무지개맨션 오브제 리퀴드",cat:"lip",emoji:"🎨",bg:"linear-gradient(135deg,#FAE8FF,#FDF4FF)",colls:["trend","jp"],src:"マット系リキッドルージュとしてSNSでヒット",desc:"絵の具のようなパッケージで話題。軽いつけ心地のマットリップ。"},
+ {brand:"AMUSE",name:"ジェルフィット ティント",kr:"어뮤즈 젤핏 틴트",cat:"lip",emoji:"🫦",bg:"linear-gradient(135deg,#FFE4E6,#FCE7F3)",colls:["trend","jp"],src:"ヴィーガンビューティの代表ブランドの人気ティント",desc:"ぷるんとしたジェル膜が唇を包む水光ティント。"},
+ {brand:"peripera",name:"インク ザ ベルベット",kr:"페리페라 잉크 더 벨벳",cat:"lip",emoji:"🍓",bg:"linear-gradient(135deg,#FFE4E6,#FCE7F3)",colls:["local","jp"],src:"ベルベットティントの定番ロングセラー",desc:"ふんわりマットな血色感。イエベ・ブルベ別の色展開が豊富。"},
+ {brand:"rom&nd",name:"グラスティング ウォーターティント",kr:"롬앤 글래스팅 워터 틴트",cat:"lip",emoji:"🔮",bg:"linear-gradient(135deg,#DBEAFE,#EFF6FF)",colls:["jp"],src:"「ガラス玉リップ」として日本でもヒット",desc:"水膜のようなツヤ発色。うるうる系リップの代表格。"},
+ {brand:"ETUDE",name:"フィクシング ティント",kr:"에뛰드 픽싱 틴트",cat:"lip",emoji:"📌",bg:"linear-gradient(135deg,#FEE2E2,#FEF2F2)",colls:["local","jp"],src:"「落ちないティント」としてマスク時代にヒット",desc:"薄膜フィットで色持ち重視派に人気のティント。"},
+ {brand:"LAKA",name:"フルーティー グラム ティント",kr:"라카 프루티 글램 틴트",cat:"lip",emoji:"🍒",bg:"linear-gradient(135deg,#FFE4E6,#FFF7ED)",colls:["trend","jp"],src:"ジェンダーニュートラルブランドの人気ティント",desc:"シロップのようなツヤと透け感発色。「粘膜色の名品」と話題。"},
+ {brand:"Melixir",name:"ヴィーガン リップバター",kr:"멜릭서 비건 립 버터",cat:"lip",emoji:"🧈",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["trend"],desc:"植物由来バターの高保湿リップケア。就寝前のリップマスク代わりにも。"},
+ {brand:"hince",name:"ムード インハンサー",kr:"힌스 무드 인핸서",cat:"lip",emoji:"💄",bg:"linear-gradient(135deg,#F5F5F4,#FAFAF9)",colls:["jp"],desc:"洗練されたニュアンスカラーで人気のリップスティックライン。"},
+
+ // ─── ボディ・ヘア 追加 ───
+ {brand:"moremo",name:"ウォータリー トリートメント ミラクル10",kr:"모레모 워터리 트리트먼트 미라클 10",cat:"body",emoji:"⏱️",bg:"linear-gradient(135deg,#E0F7FA,#F0FDFF)",colls:["local","jp"],src:"「10秒トリートメント」としてヒット",desc:"流すまで10秒のスピード集中ケア。旅行先でも使いやすい。"},
+ {brand:"FORMENT",name:"シグネチャー パフューム ボディウォッシュ コットンハグ",kr:"포맨트 시그니처 퍼퓸 바디워시 코튼 허그",cat:"body",emoji:"🤍",bg:"linear-gradient(135deg,#E0E7FF,#EEF2FF)",colls:["trend","local"],src:"「コットンハグ」の香りでSNSヒット",desc:"ふわっと石けん系の残り香で人気。ユニセックスで使いやすい。"},
+ {brand:"W.DRESSROOM",name:"ドレス&リビング クリアパフューム No.97",kr:"더블유드레스룸 드레스 퍼퓸 No.97 에이프릴 코튼",cat:"body",emoji:"👕",bg:"linear-gradient(135deg,#DBEAFE,#EFF6FF)",colls:["jp"],src:"「エイプリルコットン」の香りで日本でも有名",desc:"衣類・空間用のファブリックパフューム。石けん系No.97が看板。"},
+ {brand:"MILK BAOBAB",name:"パフューム シャンプー ホワイトソープ",kr:"밀크바오밥 퍼퓸 샴푸 화이트솝",cat:"body",emoji:"🧼",bg:"linear-gradient(135deg,#F5F5F4,#FAFAF9)",colls:["local"],desc:"石けん系の香りが続く保湿シャンプー。ボディウォッシュも人気。"},
+ {brand:"Dr.FORHAIR",name:"フォリゲン シャンプー",kr:"닥터포헤어 폴리젠 샴푸",cat:"body",emoji:"💆",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local"],src:"スカルプケアシャンプーの定番人気",desc:"ハリ・コシケアの機能性シャンプー。家族で使う人も多い。"},
+ {brand:"Ryo",name:"自陽潤毛(ジャヤンユンモ)シャンプー",kr:"려 자양윤모 샴푸",cat:"body",emoji:"🌾",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["local"],src:"韓方ヘアケアの国民的ロングセラー",desc:"漢方(韓方)成分のスカルプシャンプー。抜け毛ケア系の定番。"},
+ {brand:"ILLIYOON",name:"セラミド アト ボディウォッシュ",kr:"일리윤 세라마이드 아토 바디워시",cat:"body",emoji:"🚿",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["local"],desc:"低刺激の保湿ボディウォッシュ。ローションとセット使いの定番。"},
+ {brand:"DERMA:B",name:"デイリー モイスチャー ボディローション",kr:"더마비 데일리 모이스처 바디로션",cat:"body",emoji:"🧴",bg:"linear-gradient(135deg,#E0F2FE,#EFF6FF)",colls:["local"],desc:"大容量・低刺激で毎日使いやすいコスパ系ボディローション。"},
 ];
+
+// 既存アイテムへの肌タイプ付与(スキンケア・日焼け止め・パックのみ)
+const SKIN_HINTS={
+ "토리든 다이브인 저분자 히알루론산 세럼":["dry","combo","oily"],
+ "라운드랩 1025 독도 토너":["dry","combo","oily"],
+ "마녀공장 퓨어 클렌징 오일":["dry","combo","oily"],
+ "에스트라 아토베리어365 크림":["dry"],
+ "라운드랩 자작나무 수분 선크림":["dry","combo"],
+ "토리든 다이브인 저분자 히알루론산 마스크":["dry","combo"],
+ "구달 청귤 비타C 잡티케어 세럼":["combo","oily"],
+ "브이티 리들샷 100":["combo","oily"],
+ "바이오던스 바이오 콜라겐 리얼 딥 마스크":["dry","combo"],
+ "아누아 어성초 77 수딩 토너":["oily","combo"],
+ "메디큐브 콜라겐 나이트 랩핑 마스크":["dry"],
+ "조선미녀 릴리프 선 라이스 프로바이오틱스":["dry","combo"],
+ "리쥬란 포어 타이트닝 앰플":["combo","dry"],
+ "넘버즈인 3번 슈퍼 글로잉 에센스 토너":["dry","combo"],
+ "스킨1004 마다가스카르 센텔라 앰플":["oily","combo"],
+ "아비브 어성초 카밍 토너 패드":["oily","combo"],
+ "더마펌 토닝 세럼":["combo"],
+ "바이오힐보 3D 리프팅 크림":["dry","combo"],
+ "메디큐브 제로 모공 패드 2.0":["oily","combo"],
+ "토리든 다이브인 저분자 히알루론산 토너":["dry","combo","oily"],
+ "구달 맑은 어성초 진정 수분 선크림":["oily","combo"],
+ "아누아 어성초 포어 컨트롤 클렌징 오일":["oily","combo"],
+ "닥터지 레드 블레미쉬 클리어 수딩 크림":["oily","combo"],
+ "코스알엑스 어드밴스드 스네일 96 뮤신 에센스":["dry","combo"],
+ "이즈앤트리 히알루론산 토너":["dry"],
+ "믹순 빈 에센스":["dry","combo"],
+ "메디큐브 PDRN 핑크 톤업":["combo"],
+ "넘버즈인 5번 글루타치온 세럼":["combo","oily"],
+ "스킨1004 마다가스카르 센텔라 선크림":["oily","combo"],
+ "CKD 레티노 콜라겐 저분자 300 모공탄력 마스크":["combo","dry"],
+ "투쿨포스쿨 에그크림 마스크":["dry","combo"],
+ "메디힐 티트리 케어솔루션 마스크팩":["oily"],
+};
+PRODUCTS.forEach(p=>{if(!p.skin&&SKIN_HINTS[p.kr])p.skin=SKIN_HINTS[p.kr]});
 
 const COLL_META = {
   local:{title:"🏠 現地人の定番",desc:"韓国人が実際にリピート買いしている定番。主に「2025 オリーブヤング アワード」(約1.8億件の実購買データに基づく年間ランキング)と、口コミアプリ「ファハ(Hwahae)」の2026ランキングで上位のアイテムを選びました。"},
@@ -504,7 +682,10 @@ function render(){
       <div class="card-body">
         <div class="card-brand">${p.brand}</div>
         <div class="card-name">${p.name}</div>
-        <button class="card-kr" data-kr="${p.kr}" title="タップでコピー">${p.kr}</button>
+        <div class="card-kr-row">
+          <button class="card-kr" data-kr="${p.kr}" title="タップでコピー">${p.kr}</button>
+          <a class="card-photo" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(p.kr)}" target="_blank" rel="noopener" title="実際の写真を画像検索で見る">📷 写真</a>
+        </div>
         <p class="card-desc">${p.desc}</p>
         ${p.src?`<div class="card-src">${p.src}</div>`:""}
         <div class="card-foot">
@@ -532,8 +713,8 @@ document.getElementById("search").addEventListener("input",e=>{state.q=e.target.
 
 // 韓国語名タップでコピー(店頭で見せる/検索用)
 const toast=document.getElementById("toast");let toastTimer;
-grid.addEventListener("click",e=>{
-  const b=e.target.closest(".card-kr");if(!b)return;
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-kr]");if(!b)return;
   navigator.clipboard&&navigator.clipboard.writeText(b.dataset.kr).then(()=>{
     toast.classList.add("show");clearTimeout(toastTimer);
     toastTimer=setTimeout(()=>toast.classList.remove("show"),1800);
@@ -584,6 +765,27 @@ function goBanner(i){bi=(i+bn)%bn;track.style.transform=`translateX(-${bi*100}%)
 function autoBanner(){clearInterval(btimer);btimer=setInterval(()=>goBanner(bi+1),4500);}
 dotsEl.addEventListener("click",e=>{const d=e.target.closest(".banner-dot");if(d){goBanner(+d.dataset.i);autoBanner();}});
 autoBanner();
+
+// ── 肌タイプ別おすすめ ──
+const SKIN_META={
+ oily:{emoji:"💦",label:"脂性肌(オイリー)",kr:"지성",blurb:"皮脂・テカリ・毛穴づまりが気になるタイプ",note:"さっぱり系の鎮静ケア(シカ・ドクダミ)と毛穴・角質ケアが中心。保湿はジェル・水分クリームで軽く仕上げるのがコツ。"},
+ combo:{emoji:"🌗",label:"混合肌(コンビ)",kr:"복합성",blurb:"Tゾーンはテカるのに頬は乾燥するタイプ",note:"「水分はたっぷり・油分は控えめ」が基本。水分系トナー+軽いセラムで全体を整え、乾燥する頬だけクリームを重ねて。"},
+ dry:{emoji:"🌵",label:"乾燥肌",kr:"건성",blurb:"つっぱり・粉ふき・小じわが気になるタイプ",note:"ヒアルロン酸・セラミド系の高保湿+バリアケアを重ねるのが基本。洗顔はバーム・オイルなどマイルドなものを。"}
+};
+let skinType="combo";
+const skinTabsEl=document.getElementById("skinTabs"),skinGridEl=document.getElementById("skinGrid"),skinNoteEl=document.getElementById("skinNote"),skinMoreEl=document.getElementById("skinMore");
+function renderSkin(){
+  const m=SKIN_META[skinType];
+  skinTabsEl.innerHTML=Object.entries(SKIN_META).map(([k,v])=>`<button class="skin-tab${k===skinType?' on':''}" data-skin="${k}"><span class="st-emoji">${v.emoji}</span><b>${v.label} <span style="font-weight:500;color:var(--ink35);font-size:12px">${v.kr}</span></b><small>${v.blurb}</small></button>`).join("");
+  skinNoteEl.innerHTML=`${m.emoji} <b>${m.label}</b> — ${m.note}`;
+  const order={skincare:0,suncare:1,mask:2};
+  const items=PRODUCTS.filter(p=>p.skin&&p.skin.includes(skinType)).sort((a,b)=>(order[a.cat]??9)-(order[b.cat]??9));
+  const shown=items.slice(0,12);
+  skinGridEl.innerHTML=shown.map(p=>`<div class="sk-card"><div class="sk-visual" style="background:${p.bg}">${p.emoji}</div><div class="sk-info"><span class="sk-brand">${p.brand}</span><span class="sk-name">${p.name}</span><button class="sk-kr" data-kr="${p.kr}" title="タップでコピー">${p.kr}</button></div><a class="card-photo" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(p.kr)}" target="_blank" rel="noopener" title="実際の写真を画像検索で見る">📷</a></div>`).join("");
+  skinMoreEl.textContent=items.length>shown.length?`ほか ${items.length-shown.length} 件が該当。下の商品リスト(検索・カテゴリ絞り込み)でもチェックできます。`:"";
+}
+skinTabsEl.addEventListener("click",e=>{const t=e.target.closest(".skin-tab");if(t){skinType=t.dataset.skin;renderSkin();}});
+renderSkin();
 
 render();
 </script>
