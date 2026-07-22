@@ -65,6 +65,50 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .hstat span{font-size:12px;color:var(--ink50)}
 .hero-deco{position:absolute;right:-40px;top:20px;font-size:150px;opacity:.10;pointer-events:none;user-select:none;transform:rotate(12deg)}
 
+/* INFO BANNERS */
+.banners{margin:26px auto 6px}
+.banner-viewport{overflow:hidden;border-radius:16px}
+.banner-track{display:flex;transition:transform .5s var(--ease)}
+.banner{min-width:100%;box-sizing:border-box;display:flex;align-items:center;gap:16px;padding:20px 24px;border:1px solid var(--ink15)}
+.b-sale{background:linear-gradient(120deg,#E4F7EE,#F2FBF6)}
+.b-hot{background:linear-gradient(120deg,#FFE4E6,#FFF1F2)}
+.b-event{background:linear-gradient(120deg,#FEF3C7,#FFFBEB)}
+.b-tax{background:linear-gradient(120deg,#E0E7FF,#F5F3FF)}
+.banner-ico{font-size:30px;flex-shrink:0}
+.banner-tx{display:flex;flex-direction:column;gap:3px}
+.banner-tx b{font-size:15px;font-weight:800;letter-spacing:-.01em}
+.banner-tx span{font-size:12.5px;color:var(--ink50);line-height:1.6}
+.banner-tx strong{color:var(--green-d);font-weight:700}
+.banner-dots{display:flex;gap:7px;justify-content:center;margin-top:12px}
+.banner-dot{width:7px;height:7px;border-radius:50%;background:var(--ink20);cursor:pointer;transition:.15s}
+.banner-dot.on{background:var(--green);width:22px;border-radius:99px}
+
+/* FEATURED BRANDS */
+.feature{margin:44px auto 8px}
+.feature-head{margin-bottom:18px}
+.feature-head h2{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-top:2px}
+.feature-head p{font-size:13px;color:var(--ink50);margin-top:8px;line-height:1.7;max-width:620px}
+.brand-chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.brand-chips::-webkit-scrollbar{display:none}
+.brand-chip{flex-shrink:0;padding:9px 18px;border-radius:99px;border:1.5px solid var(--ink15);background:#fff;font-family:var(--fd);font-weight:700;font-size:14px;color:var(--ink50);transition:.14s}
+.brand-chip:hover{border-color:var(--green);color:var(--green-d)}
+.brand-chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.brand-spotlight{margin-top:16px;border:1px solid var(--ink15);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:280px 1fr}
+.spot-visual{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:32px;min-height:220px}
+.spot-visual::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.5),transparent 60%);pointer-events:none}
+.spot-emoji{font-size:60px;z-index:1;filter:drop-shadow(0 6px 12px rgba(17,24,39,.15))}
+.spot-wordmark{z-index:1;font-family:var(--fd);font-weight:800;font-size:22px;letter-spacing:-.01em;color:var(--ink)}
+.spot-kr{z-index:1;font-family:'Noto Sans KR',sans-serif;font-size:13px;color:var(--ink50);background:rgba(255,255,255,.7);padding:3px 12px;border-radius:99px}
+.spot-body{padding:28px 30px;display:flex;flex-direction:column;justify-content:center}
+.spot-tag{align-self:flex-start;font-size:11px;font-weight:700;color:var(--green-d);background:var(--green-l);border-radius:99px;padding:5px 12px;margin-bottom:12px;display:flex;gap:5px}
+.spot-tag::before{content:"📊"}
+.spot-body h3{font-size:20px;font-weight:900;letter-spacing:-.01em;margin-bottom:8px}
+.spot-blurb{font-size:13.5px;color:var(--ink70);line-height:1.85;margin-bottom:16px}
+.spot-picks-label{font-size:11px;font-weight:700;color:var(--ink35);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.spot-picks{display:flex;flex-wrap:wrap;gap:7px}
+.spot-pick{font-size:12px;font-weight:600;color:var(--ink70);background:var(--ink05);border:1px solid var(--ink15);border-radius:8px;padding:6px 11px}
+@media(max-width:640px){.brand-spotlight{grid-template-columns:1fr}.spot-visual{min-height:170px;padding:26px}}
+
 /* TAB NAV (3 collections) */
 .tabs-wrap{position:sticky;top:60px;z-index:40;background:#fff;border-bottom:1px solid var(--ink15)}
 .tabs{max-width:1080px;margin:0 auto;padding:0 20px;display:flex;gap:6px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none}
@@ -95,9 +139,12 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:20px 0 12px}
 .card{background:#fff;border:1px solid var(--ink15);border-radius:var(--r);overflow:hidden;transition:.18s;display:flex;flex-direction:column;position:relative}
 .card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--ink35)}
-.card-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative}
-.card-rank{position:absolute;top:10px;left:10px;background:rgba(17,24,39,.85);color:#fff;font-family:var(--fd);font-weight:800;font-size:12px;padding:3px 9px;border-radius:7px}
-.card-badges{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.card-img{height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden}
+.card-img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.55),transparent 60%);pointer-events:none}
+.card-emoji{font-size:52px;line-height:1;filter:drop-shadow(0 4px 8px rgba(17,24,39,.12));z-index:1}
+.card-wordmark{z-index:1;font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:.02em;color:rgba(17,24,39,.55);text-transform:uppercase;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);padding:3px 12px;border-radius:99px;backdrop-filter:blur(4px);max-width:85%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-rank{position:absolute;top:10px;left:10px;z-index:2;background:rgba(17,24,39,.85);color:#fff;font-family:var(--fd);font-weight:800;font-size:12px;padding:3px 9px;border-radius:7px}
+.card-badges{position:absolute;top:10px;right:10px;z-index:2;display:flex;flex-direction:column;gap:4px;align-items:flex-end}
 .bdg{font-size:9.5px;font-weight:700;padding:3px 8px;border-radius:99px;letter-spacing:.02em}
 .bdg-local{background:#fff;color:var(--green-d);border:1px solid rgba(11,163,96,.35)}
 .bdg-trend{background:#fff;color:#D97706;border:1px solid rgba(217,119,6,.35)}
@@ -112,9 +159,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .card-src{font-size:10.5px;color:var(--green-d);background:var(--green-t);border:1px solid rgba(11,163,96,.18);border-radius:8px;padding:6px 9px;line-height:1.5;margin-bottom:10px;display:flex;gap:5px}
 .card-src::before{content:"📊";flex-shrink:0}
 .card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--ink08);padding-top:10px}
-.card-price{font-family:var(--fm);font-size:13px;font-weight:700;color:var(--ink)}
-.card-price span{font-size:10.5px;color:var(--ink35);font-weight:400;margin-left:4px}
 .card-cat{font-size:10.5px;color:var(--ink35);background:var(--ink08);padding:3px 8px;border-radius:6px}
+.card-price-note{font-size:10px;color:var(--ink35)}
 .empty{padding:56px 0;text-align:center;color:var(--ink35);font-size:14px;display:none}
 
 /* AD SLOT */
@@ -201,11 +247,47 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
       <a class="btn-o" href="#tips">💡 買い物のコツ</a>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><b>29</b><span>厳選アイテム</span></div>
+      <div class="hstat"><b>49</b><span>厳選アイテム</span></div>
       <div class="hstat"><b>100<i>%</i></b><span>出典つき選定</span></div>
       <div class="hstat"><b>100<i>%</i></b><span>韓国語表記付き</span></div>
     </div>
   </div>
+</section>
+
+<!-- ── INFO BANNERS (セール・完売・イベント) ── -->
+<section class="banners container" aria-label="お知らせ">
+  <div class="banner-viewport">
+    <div class="banner-track" id="bannerTrack">
+      <div class="banner b-sale">
+        <span class="banner-ico">🗓️</span>
+        <div class="banner-tx"><b>「オリヨンセール」は年4回!</b><span>3月・6月・9月・12月頃に開催、最大<strong>50%オフ</strong>。旅行日程が合えば絶対このタイミング。</span></div>
+      </div>
+      <div class="banner b-hot">
+        <span class="banner-ico">🔥</span>
+        <div class="banner-tx"><b>完売注意アイテムあり</b><span>バイオダンス/メディキューブの人気マスクは夕方に売り切れも。<strong>午前中の来店</strong>が安心です。</span></div>
+      </div>
+      <div class="banner b-event">
+        <span class="banner-ico">🎁</span>
+        <div class="banner-tx"><b>「1+1」は同じ商品がもう1個無料</b><span>「2+1」は2個で1個無料。まとめ買い・友達とシェアが韓国流の賢い買い方。</span></div>
+      </div>
+      <div class="banner b-tax">
+        <span class="banner-ico">🧾</span>
+        <div class="banner-tx"><b>3万ウォン以上で即時タックスリフンド</b><span>レジでその場で免税(即時還付)。<strong>パスポート必携</strong>をお忘れなく。</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="banner-dots" id="bannerDots"></div>
+</section>
+
+<!-- ── 注目ブランド スポットライト ── -->
+<section class="feature container" id="feature">
+  <div class="feature-head">
+    <div class="sec-label">Featured Brands</div>
+    <h2>注目ブランド 🌟</h2>
+    <p>いま韓国で特に勢いのあるブランド。受賞歴・話題性の出典つきで紹介します。ブランド名をタップすると切り替わります。</p>
+  </div>
+  <div class="brand-chips" id="brandChips"></div>
+  <div class="brand-spotlight" id="brandSpot"></div>
 </section>
 
 <div class="tabs-wrap">
@@ -263,7 +345,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
         <span>日本で韓国コスメがよく売れるセール。マーケティング会社の売上データ分析(2025)を参照しています。</span>
       </div>
     </div>
-    <p class="sources-note">※ 価格(₩)はセット構成・時期・セールにより変動する<strong>目安</strong>です。正確な価格・在庫は店頭または公式サイトでご確認ください。ランキングは各出典の集計時点のもので、常に最新とは限りません。当サイトはオリーブヤングおよび各ブランドとは関係のない非公式の情報サイトです。</p>
+    <p class="sources-note">※ 価格はセット構成・時期・セールにより頻繁に変わるため、<strong>あえて表示していません</strong>。正確な価格・在庫は店頭またはオリーブヤング公式アプリでご確認ください。ランキングは各出典の集計時点のもので、常に最新とは限りません。当サイトはオリーブヤングおよび各ブランドとは関係のない非公式の情報サイトです。</p>
   </section>
 </main>
 
@@ -360,7 +442,29 @@ const PRODUCTS = [
  {brand:"DERMAFIRM",name:"トニング セラム",kr:"더마펌 토닝 세럼",cat:"skincare",price:"30,000",emoji:"🌟",bg:"linear-gradient(135deg,#EDE9FE,#F5F3FF)",colls:["jp"],rank:{jp:6},src:"Qoo10メガ割2025 売上1位(VALUES集計)",desc:"スポット・くすみが気になる肌向けの美容液。日本のQoo10メガ割で売上トップになった話題作。"},
  {brand:"BIOHEAL BOH",name:"プロバイオダーム 3Dリフティングクリーム",kr:"바이오힐보 3D 리프팅 크림",cat:"skincare",price:"28,000",emoji:"⏫",bg:"linear-gradient(135deg,#FFEDD5,#FFF7ED)",colls:["jp"],rank:{jp:7},src:"Qoo10メガ割2025 売上2位(VALUES集計)",desc:"ハリ・弾力ケアのエイジングクリーム。日本のQoo10メガ割で売上2位の人気アイテム。"},
  {brand:"CLIO",name:"プロ アイパレット エア",kr:"클리오 프로 아이 팔레트 에어",cat:"makeup",price:"34,000",emoji:"🎨",bg:"linear-gradient(135deg,#FAE8FF,#FDF4FF)",colls:["jp"],src:"日本限定色を展開・LIPS16,000件超レビュー(日本¥3,960)",desc:"繊細なラメと使いやすい捨て色なしのアイパレット。日本限定色が出るほど日本人に人気。"},
- {brand:"medicube",name:"ゼロ毛穴パッド 2.0",kr:"메디큐브 제로 모공 패드 2.0",cat:"mask",price:"25,000",emoji:"⭕",bg:"linear-gradient(135deg,#CFFAFE,#F0FDFF)",colls:["jp"],src:"日本の@cosme/LIPSで人気の毛穴ケアパッド",desc:"AHA/BHA配合の拭き取り毛穴パッド。ざらつき・角質ケアとして日本でも定番人気。"},
+ {brand:"medicube",name:"ゼロ毛穴パッド 2.0",kr:"메디큐브 제로 모공 패드 2.0",cat:"mask",emoji:"⭕",bg:"linear-gradient(135deg,#CFFAFE,#F0FDFF)",colls:["jp"],src:"日本の@cosme/LIPSで人気の毛穴ケアパッド",desc:"AHA/BHA配合の拭き取り毛穴パッド。ざらつき・角質ケアとして日本でも定番人気。"},
+
+ // ─── 追加分:定番&受賞・人気アイテム ───
+ {brand:"Torriden",name:"ダイブイン 低分子ヒアルロン酸トナー",kr:"토리든 다이브인 저분자 히알루론산 토너",cat:"skincare",emoji:"💧",bg:"linear-gradient(135deg,#E0F2FE,#EFF6FF)",colls:["local"],src:"ファハ(Hwahae)2026 トナー部門1位(★4.7・3.4万件超レビュー)",desc:"人気のダイブインラインのトナー。口コミアプリ・ファハ2026でトナー1位のうるおいトナー。"},
+ {brand:"Torriden",name:"ソリッドイン リップエッセンス",kr:"토리든 솔리드인 립 에센스",cat:"lip",emoji:"💄",bg:"linear-gradient(135deg,#FFE4E6,#FFF1F2)",colls:["local"],src:"2025 オリーブヤング アワード リップケア部門1位",desc:"荒れがちな唇をケアする保湿リップエッセンス。トリデンが3カテゴリ制覇した一角。"},
+ {brand:"Goodal",name:"ドクダミ 鎮静水分サンクリーム",kr:"구달 맑은 어성초 진정 수분 선크림",cat:"suncare",emoji:"🌿",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local","trend"],src:"グロウピック オリーブヤング日焼け止めランキング1位(2026年7月時点)",desc:"ドクダミ配合でうるおいながら鎮静する水分系日焼け止め。2026の売れ筋サンケア。"},
+ {brand:"Anua",name:"ドクダミ ポアコントロール クレンジングオイル",kr:"아누아 어성초 포어 컨트롤 클렌징 오일",cat:"skincare",emoji:"🫧",bg:"linear-gradient(135deg,#D9F99D,#F7FEE7)",colls:["local","jp"],src:"2024 オリーブヤング アワード クレンジングオイル部門受賞",desc:"毛穴汚れ・皮脂まですっきり落とすと定番の人気クレンジングオイル。"},
+ {brand:"CKD",name:"レチノ コラーゲン 300 毛穴弾力マスク",kr:"CKD 레티노 콜라겐 저분자 300 모공탄력 마스크",cat:"mask",emoji:"🧴",bg:"linear-gradient(135deg,#F3E8FF,#FAF5FF)",colls:["local"],src:"2025 オリーブヤング アワード マスクパック MD's PICK",desc:"レチノール×コラーゲンでハリ・毛穴ケアするシートマスク。"},
+ {brand:"Dr.G",name:"レッドブレミッシュ スージングクリーム",kr:"닥터지 레드 블레미쉬 클리어 수딩 크림",cat:"skincare",emoji:"🌿",bg:"linear-gradient(135deg,#DCFCE7,#ECFDF5)",colls:["local"],src:"韓国で定番の鎮静ジェルクリーム(敏感・ゆらぎ肌向け)",desc:"赤み・ほてりをケアする鎮静ジェルクリーム。夏に常備する韓国人も多い定番。"},
+ {brand:"COSRX",name:"アドバンスド スネイル96 ムチンエッセンス",kr:"코스알엑스 어드밴스드 스네일 96 뮤신 에센스",cat:"skincare",emoji:"🐌",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["local","jp"],src:"海外でも定番のロングセラーエッセンス",desc:"カタツムリ粘液ろ過物配合で保湿・ツヤを与える世界的ロングセラー。"},
+ {brand:"Isntree",name:"ヒアルロン酸 トナー",kr:"이즈앤트리 히알루론산 토너",cat:"skincare",emoji:"💦",bg:"linear-gradient(135deg,#CFFAFE,#ECFEFF)",colls:["local"],src:"保湿トナーの定番として韓国で人気",desc:"何度も重ね付けできる高保湿トナー。乾燥肌のデイリールーティンに。"},
+ {brand:"Kundal",name:"ハニー&マカダミア シャンプー",kr:"쿤달 허니 앤 마카다미아 샴푸",cat:"body",emoji:"🍯",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["local"],src:"香りの種類が豊富な韓国ドラッグストア定番シャンプー",desc:"香水級の残り香で人気のシャンプー。香りの種類が豊富。"},
+ {brand:"mixsoon",name:"ビーンエッセンス",kr:"믹순 빈 에센스",cat:"skincare",emoji:"🫘",bg:"linear-gradient(135deg,#F5F5F4,#FAFAF9)",colls:["trend"],src:"「もちもちパック洗顔」動画でSNSバズ",desc:"大豆発酵エッセンス。角質ケアと保湿を同時に、ミニマル成分派に人気。"},
+ {brand:"too cool for school",name:"エッグクリーム シートマスク",kr:"투쿨포스쿨 에그크림 마스크",cat:"mask",emoji:"🥚",bg:"linear-gradient(135deg,#FEF3C7,#FFF7ED)",colls:["trend"],src:"Qoo10ビューティ売れ筋上位(2026)のシートマスク",desc:"卵成分イメージのうるおいシートマスク。Qoo10で人気のパック。"},
+ {brand:"medicube",name:"PDRN ピンク トーンアップ",kr:"메디큐브 PDRN 핑크 톤업",cat:"suncare",emoji:"🩷",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["trend"],src:"2026注目のPDRNトレンド・オリーブヤングセールで検索695%増",desc:"PDRN配合でトーンアップしながらケアする話題のライン。"},
+ {brand:"TIRTIR",name:"マスクフィット レッドクッション",kr:"티르티르 마스크핏 레드쿠션",cat:"makeup",emoji:"🔴",bg:"linear-gradient(135deg,#FEE2E2,#FEF2F2)",colls:["jp"],src:"日本で人気のクッションファンデ・豊富なカラー展開",desc:"マスクにつきにくい密着カバーのクッション。日本人の定番土産の一つ。"},
+ {brand:"peripera",name:"インクムード グロイティント",kr:"페리페라 잉크 무드 글로이 틴트",cat:"lip",emoji:"💋",bg:"linear-gradient(135deg,#FFE4E6,#FCE7F3)",colls:["jp"],src:"日本の@cosme・LIPSで人気のプチプラティント",desc:"透け感グロウ発色で、まとめ買いのばらまき土産に最適。"},
+ {brand:"dasique",name:"シャドウパレット",kr:"데이지크 섀도우 팔레트",cat:"makeup",emoji:"🌸",bg:"linear-gradient(135deg,#FCE7F3,#FDF4FF)",colls:["jp"],src:"日本人に人気のシャドウパレット・限定色は即完売",desc:"血色感カラーで日本人の肌トーンにも合わせやすいと人気。"},
+ {brand:"CLIO",name:"キルカバー ファンウェア クッション",kr:"클리오 킬커버 파운웨어 쿠션",cat:"makeup",emoji:"🎯",bg:"linear-gradient(135deg,#E5E7EB,#F9FAFB)",colls:["jp"],src:"カバー力で定番のクッション(パフ付きリフィル構成)",desc:"高いカバー力で人気。実質2個分の構成でコスパも良い。"},
+ {brand:"numbuzin",name:"5番 グルタチオンC 美容液",kr:"넘버즈인 5번 글루타치온 세럼",cat:"skincare",emoji:"5️⃣",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["jp","trend"],src:"Qoo10 Japanで人気の美白系セラム",desc:"グルタチオン×ビタミンCでくすみケア。ノンボジンの人気セラム。"},
+ {brand:"d'Alba",name:"ホワイトトリュフ スプレーセラム",kr:"달바 화이트 트러플 퍼스트 스프레이 세럼",cat:"skincare",emoji:"💨",bg:"linear-gradient(135deg,#F3E8FF,#FAF5FF)",colls:["jp"],src:"日本の百貨店でも話題のミスト美容液",desc:"メイクの上からも使える保湿スプレー美容液。"},
+ {brand:"Mediheal",name:"ティーツリー ケアソリューションマスク",kr:"메디힐 티트리 케어솔루션 마스크팩",cat:"mask",emoji:"🍃",bg:"linear-gradient(135deg,#D1FAE5,#ECFDF5)",colls:["jp"],src:"ばらまき土産の定番シートマスク",desc:"1枚から買える鎮静シートマスク。まとめ買いのお土産にも。"},
+ {brand:"SKIN1004",name:"マダガスカル センテラ 日焼け止め",kr:"스킨1004 마다가스카르 센텔라 선크림",cat:"suncare",emoji:"☀️",bg:"linear-gradient(135deg,#D1FAE5,#F0FDFA)",colls:["jp","trend"],src:"シカ由来成分の鎮静サンケアとして海外でも人気",desc:"ツボクサ由来成分配合で肌をいたわる日焼け止め。"},
 ];
 
 const COLL_META = {
@@ -391,7 +495,9 @@ function render(){
     ].join("");
     const cats={skincare:"スキンケア",suncare:"日焼け止め",mask:"パック",makeup:"メイク",lip:"リップ",body:"ボディ・ヘア"};
     return `<article class="card">
-      <div class="card-img" style="background:${p.bg}">${p.emoji}
+      <div class="card-img" style="background:${p.bg}">
+        <span class="card-emoji">${p.emoji}</span>
+        <span class="card-wordmark">${p.brand}</span>
         ${rank?`<span class="card-rank">No.${rank}</span>`:""}
         <div class="card-badges">${badges}</div>
       </div>
@@ -402,8 +508,8 @@ function render(){
         <p class="card-desc">${p.desc}</p>
         ${p.src?`<div class="card-src">${p.src}</div>`:""}
         <div class="card-foot">
-          <span class="card-price">₩${p.price}<span>目安</span></span>
           <span class="card-cat">${cats[p.cat]}</span>
+          <span class="card-price-note">💬 店頭・公式アプリで確認</span>
         </div>
       </div>
     </article>`;
@@ -438,6 +544,46 @@ document.querySelectorAll(".faq-q").forEach(q=>q.addEventListener("click",()=>{
   const item=q.parentElement,a=item.querySelector(".faq-a"),open=item.classList.toggle("open");
   a.style.maxHeight=open?a.scrollHeight+"px":"0";
 }));
+
+// ── 注目ブランド スポットライト ──
+const FEATURED=[
+ {name:"Torriden",kr:"토리든",emoji:"💧",bg:"linear-gradient(135deg,#E0F2FE,#EFF6FF)",tag:"2025 オリーブヤング アワード 3カテゴリ制覇",blurb:"低分子ヒアルロン酸の「ダイブイン」シリーズが看板。セラム・マスク・リップケアで購買データ1位を獲得し、口コミアプリ・ファハ2026でも総合上位。",picks:["ダイブイン セラム","ダイブイン トナー","ソリッドイン リップエッセンス"]},
+ {name:"Anua",kr:"아누아",emoji:"🌿",bg:"linear-gradient(135deg,#D9F99D,#F7FEE7)",tag:"TikTok約24億回再生・米セフォラ1,400店展開",blurb:"ドクダミ(オソンチョ)を軸にした鎮静スキンケアで世界的にブレイク。日本のLIPSベストコスメ2024でも化粧水1位を獲得。",picks:["ドクダミ77% トナー","ドクダミ クレンジングオイル"]},
+ {name:"BIODANCE",kr:"바이오던스",emoji:"✨",bg:"linear-gradient(135deg,#E0E7FF,#F5F3FF)",tag:"TikTok「モーニングシェッド」で世界的バズ",blurb:"一晩貼ると透明になる「溶けるコラーゲンマスク」が代名詞。ガラス肌トレンドの中心で、2026も定番人気が続いています。",picks:["バイオコラーゲン リアルディープマスク"]},
+ {name:"VT",kr:"브이티",emoji:"💉",bg:"linear-gradient(135deg,#CFFAFE,#ECFEFF)",tag:"APEC2025首脳ギフトに採用・「塗る美容鍼」",blurb:"「リードルショット」で角質層への浸透ケアという新しいカテゴリを作った話題ブランド。日韓ともに高い人気。",picks:["リードルショット 100"]},
+ {name:"medicube",kr:"메디큐브",emoji:"🌙",bg:"linear-gradient(135deg,#E0E7FF,#EEF2FF)",tag:"ガラス肌ケア&2026のPDRNトレンド",blurb:"ラッピングマスク・毛穴パッド・PDRNラインまで幅広くヒット。SNS発の人気アイテムを多数抱えるメガブランド。",picks:["ナイトラッピングマスク","ゼロ毛穴パッド 2.0","PDRN ピンク トーンアップ"]},
+ {name:"rom&nd",kr:"롬앤",emoji:"🍑",bg:"linear-gradient(135deg,#FFE4E6,#FFF7ED)",tag:"@cosmeベストコスメ2024 総合3位",blurb:"日本のティントリップブームを牽引。2025オリーブヤング アワードのリップメイク1位も獲得した、色モノの定番ブランド。",picks:["ジューシー ラスティングティント","ハンオール ブロウカラ"]},
+];
+const chipsEl=document.getElementById("brandChips"),spotEl=document.getElementById("brandSpot");
+function renderBrand(i){
+  const b=FEATURED[i];
+  [...chipsEl.children].forEach((c,idx)=>c.classList.toggle("on",idx===i));
+  spotEl.innerHTML=`
+    <div class="spot-visual" style="background:${b.bg}">
+      <span class="spot-emoji">${b.emoji}</span>
+      <span class="spot-wordmark">${b.name}</span>
+      <span class="spot-kr">🇰🇷 ${b.kr}</span>
+    </div>
+    <div class="spot-body">
+      <span class="spot-tag">${b.tag}</span>
+      <h3>${b.name} <span style="font-weight:500;font-size:14px;color:var(--ink50)">/ ${b.kr}</span></h3>
+      <p class="spot-blurb">${b.blurb}</p>
+      <div class="spot-picks-label">代表アイテム</div>
+      <div class="spot-picks">${b.picks.map(p=>`<span class="spot-pick">${p}</span>`).join("")}</div>
+    </div>`;
+}
+chipsEl.innerHTML=FEATURED.map((b,i)=>`<button class="brand-chip${i===0?' on':''}" data-i="${i}">${b.name}</button>`).join("");
+chipsEl.addEventListener("click",e=>{const c=e.target.closest(".brand-chip");if(c)renderBrand(+c.dataset.i);});
+renderBrand(0);
+
+// ── お知らせバナー(自動スライド)──
+const track=document.getElementById("bannerTrack"),dotsEl=document.getElementById("bannerDots");
+const bn=track.children.length;let bi=0,btimer;
+dotsEl.innerHTML=Array.from({length:bn},(_,i)=>`<span class="banner-dot${i===0?' on':''}" data-i="${i}"></span>`).join("");
+function goBanner(i){bi=(i+bn)%bn;track.style.transform=`translateX(-${bi*100}%)`;[...dotsEl.children].forEach((d,idx)=>d.classList.toggle("on",idx===bi));}
+function autoBanner(){clearInterval(btimer);btimer=setInterval(()=>goBanner(bi+1),4500);}
+dotsEl.addEventListener("click",e=>{const d=e.target.closest(".banner-dot");if(d){goBanner(+d.dataset.i);autoBanner();}});
+autoBanner();
 
 render();
 </script>
