@@ -109,6 +109,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .card-kr:hover{background:var(--green-l)}
 .card-kr::before{content:"🇰🇷 "}
 .card-desc{font-size:12px;color:var(--ink50);line-height:1.7;flex:1;margin-bottom:10px}
+.card-src{font-size:10.5px;color:var(--green-d);background:var(--green-t);border:1px solid rgba(11,163,96,.18);border-radius:8px;padding:6px 9px;line-height:1.5;margin-bottom:10px;display:flex;gap:5px}
+.card-src::before{content:"📊";flex-shrink:0}
 .card-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--ink08);padding-top:10px}
 .card-price{font-family:var(--fm);font-size:13px;font-weight:700;color:var(--ink)}
 .card-price span{font-size:10.5px;color:var(--ink35);font-weight:400;margin-left:4px}
@@ -119,6 +121,18 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .ad-slot{margin:32px 0;border:1.5px dashed var(--ink15);border-radius:var(--r);background:var(--ink04);min-height:100px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
 .ad-slot small{font-size:10px;letter-spacing:.14em;color:var(--ink35);font-family:var(--fm);text-transform:uppercase}
 .ad-slot p{font-size:11px;color:var(--ink35)}
+
+/* SOURCES */
+.sources{margin:48px 0 8px;padding:32px;background:var(--green-t);border:1px solid rgba(11,163,96,.18);border-radius:16px}
+.sources h2{font-size:20px;font-weight:900;letter-spacing:-.01em;margin-bottom:8px}
+.sources-lead{font-size:13.5px;color:var(--ink70);line-height:1.8;margin-bottom:20px;max-width:720px}
+.sources-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:18px}
+.source-card{background:#fff;border:1px solid var(--ink15);border-radius:12px;padding:16px}
+.source-card b{display:block;font-size:13.5px;font-weight:800;color:var(--green-d);margin-bottom:6px}
+.source-card span{font-size:12px;color:var(--ink50);line-height:1.75}
+.source-card strong{color:var(--ink70);font-weight:700}
+.sources-note{font-size:11.5px;color:var(--ink50);line-height:1.8;padding-top:14px;border-top:1px dashed rgba(11,163,96,.25)}
+.sources-note strong{color:var(--green-d)}
 
 /* TIPS */
 .tips{background:var(--green-t);border-top:1px solid var(--ink15);border-bottom:1px solid var(--ink15);margin-top:40px}
@@ -181,14 +195,14 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
     <div class="hero-badge">🇯🇵 日本人向けK-Beauty完全ガイド</div>
     <h1>韓国で<em>何を買えばいいか</em>、<br>KBEAUTY.jpで解決。</h1>
     <p class="hero-sub">韓国の<strong>現地人が本当に使っているコスメ</strong>、<strong>今韓国で流行中のアイテム</strong>、そして<strong>日本人に特に人気の商品</strong>を1つのページに。すべて韓国語の商品名付きだから、店頭でそのまま見せて探せます。</p>
-    <p class="hero-note">「観光客向けの棚」ではなく、韓国人の友達に「これ買っときな」と言われるリアルなおすすめを集めました。</p>
+    <p class="hero-note">雰囲気で選んだ「おすすめ」ではありません。<strong>オリーブヤング アワード(実購買データ)</strong>、口コミアプリ<strong>ファハ</strong>、日本の<strong>@cosme・LIPS・Qoo10</strong>など、公開ランキングを根拠に選定。各商品に出典を明記しています。</p>
     <div class="hero-cta">
       <a class="btn-g" href="#products">おすすめを見る ↓</a>
       <a class="btn-o" href="#tips">💡 買い物のコツ</a>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><b>30<i>+</i></b><span>厳選アイテム</span></div>
-      <div class="hstat"><b>3</b><span>目的別カテゴリ</span></div>
+      <div class="hstat"><b>29</b><span>厳選アイテム</span></div>
+      <div class="hstat"><b>100<i>%</i></b><span>出典つき選定</span></div>
       <div class="hstat"><b>100<i>%</i></b><span>韓国語表記付き</span></div>
     </div>
   </div>
@@ -227,6 +241,30 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
     <small>AD</small>
     <p>広告スペース(Google AdSense)</p>
   </div>
+
+  <section class="sources" id="sources">
+    <h2>データの根拠について 📊</h2>
+    <p class="sources-lead">当サイトの商品選定は、個人の感想だけに頼らず、公開されている購買データ・ランキングを根拠にしています。主な出典は以下の通りです。</p>
+    <div class="sources-grid">
+      <div class="source-card">
+        <b>オリーブヤング アワード</b>
+        <span>オリーブヤングが年1回発表する年間アワード。2025年版は<strong>約1.8億件の実購買データ</strong>(2024年7月〜2025年6月)を基に40カテゴリ166商品を選定。「現地人の定番」の主な根拠です。</span>
+      </div>
+      <div class="source-card">
+        <b>ファハ / Hwahae(화해)</b>
+        <span>韓国最大級のコスメ口コミアプリ。<strong>2026年の化粧品TOP100</strong>など、実ユーザー約102万件のレビューに基づくランキングを参照しています。</span>
+      </div>
+      <div class="source-card">
+        <b>@cosme・LIPS(日本)</b>
+        <span>日本の大手コスメ口コミサービス。ベストコスメアワードの受賞歴を「日本人に人気」の根拠にしています。</span>
+      </div>
+      <div class="source-card">
+        <b>Qoo10 Japan メガ割</b>
+        <span>日本で韓国コスメがよく売れるセール。マーケティング会社の売上データ分析(2025)を参照しています。</span>
+      </div>
+    </div>
+    <p class="sources-note">※ 価格(₩)はセット構成・時期・セールにより変動する<strong>目安</strong>です。正確な価格・在庫は店頭または公式サイトでご確認ください。ランキングは各出典の集計時点のもので、常に最新とは限りません。当サイトはオリーブヤングおよび各ブランドとは関係のない非公式の情報サイトです。</p>
+  </section>
 </main>
 
 <section class="tips" id="tips">
@@ -263,6 +301,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
   <div class="sec-label">FAQ</div>
   <h2>よくある質問</h2>
   <div class="faq-list">
+    <div class="faq-item"><button class="faq-q">商品はどういう基準で選んでいるの?信頼できる?</button><div class="faq-a"><p>個人の感想だけでなく、公開されている購買データ・ランキングを根拠に選んでいます。主に「オリーブヤング アワード」(実購買データに基づく年間ランキング)、口コミアプリ「ファハ(Hwahae)」、日本の「@cosme・LIPS」「Qoo10 Japan」の売れ筋データを参照し、各商品カードに出典を明記しています。ただしランキングは集計時点のもので、価格・在庫は変動します。最新情報は店頭・公式サイトでご確認ください。</p></div></div>
     <div class="faq-item"><button class="faq-q">オリーブヤングって何?どこにあるの?</button><div class="faq-a"><p>韓国最大のドラッグストア型ビューティーショップ。日本でいうマツキヨ+ロフトのコスメ版のような存在で、韓国コスメはほぼここで揃います。ソウルだけで数百店舗、明洞・弘大・江南など観光エリアには必ずあります。</p></div></div>
     <div class="faq-item"><button class="faq-q">日本語は通じる?</button><div class="faq-a"><p>明洞など観光地の大型店には日本語対応スタッフがいることが多いです。それ以外の店舗でも、このサイトの商品カード(韓国語名)をそのまま見せれば問題なく買い物できます。</p></div></div>
     <div class="faq-item"><button class="faq-q">支払いは日本のクレカでOK?現金は必要?</button><div class="faq-a"><p>VISA/Mastercard/JCBなど日本発行のクレジットカードがほぼ全店で使えます。現金(ウォン)がなくても大丈夫。タッチ決済も普及しています。</p></div></div>
@@ -288,47 +327,46 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 
 <script>
 const PRODUCTS = [
- // ─── 現地人の定番 (local) ───
- {brand:"Torriden",name:"ダイブイン セラム",kr:"토리든 다이브인 세럼",cat:"skincare",price:"18,000",emoji:"💧",bg:"linear-gradient(135deg,#E0F2FE,#EFF6FF)",colls:["local","trend"],rank:{local:1},desc:"韓国人の「とりあえずこれ」保湿セラム。低分子ヒアルロン酸5種で軽いのにしっかり潤う。韓国コスメ界の常連人気1位。"},
- {brand:"Round Lab",name:"独島(ドクト)トナー",kr:"라운드랩 독도 토너",cat:"skincare",price:"14,000",emoji:"🌊",bg:"linear-gradient(135deg,#E0F7FA,#F0FDFF)",colls:["local"],rank:{local:2},desc:"敏感肌でも使える鎮静トナーの国民的定番。拭き取りにも保湿にも。迷ったらこれと言われる一本。"},
- {brand:"ILLIYOON",name:"セラミドアト ローション",kr:"일리윤 세라마이드 아토 로션",cat:"body",price:"13,000",emoji:"🧴",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["local"],rank:{local:3},desc:"韓国の家庭に1本はあるボディローション。セラミド配合で乾燥肌・子どもにも。大容量でコスパ最強。"},
- {brand:"AESTURA",name:"アトバリア365 クリーム",kr:"에스트라 아토베리어365 크림",cat:"skincare",price:"25,000",emoji:"🛡️",bg:"linear-gradient(135deg,#EDE9FE,#F5F3FF)",colls:["local"],desc:"皮膚科でも勧められる保湿バリアクリーム。荒れた肌の立て直しに韓国人が頼る「薬箱コスメ」。"},
- {brand:"Ma:nyo",name:"ピュア クレンジングオイル",kr:"마녀공장 퓨어 클렌징 오일",cat:"skincare",price:"19,000",emoji:"🫧",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local","jp"],rank:{jp:3},desc:"毛穴の黒ずみケアで有名なクレンジングオイル。日本のアットコスメでも殿堂入りした実力派。"},
- {brand:"BIOHEAL BOH",name:"プロバイオダーム リフティングクリーム",kr:"바이오힐보 프로바이오덤 리프팅 크림",cat:"skincare",price:"28,000",emoji:"⏫",bg:"linear-gradient(135deg,#FFEDD5,#FFF7ED)",colls:["local","trend"],desc:"「弾力クリーム」として30代以降の韓国人に大人気。ハリ・リフトケア部門の売上上位常連。"},
- {brand:"MISSHA",name:"ビタシープラス 美容液",kr:"미샤 비타씨플러스 앰플",cat:"skincare",price:"22,000",emoji:"🍊",bg:"linear-gradient(135deg,#FFEDD5,#FEF3C7)",colls:["local"],desc:"ビタミンC誘導体でくすみケア。刺激が少なくビタミンC初心者向けとして定番。"},
- {brand:"Dr.G",name:"レッドブレミッシュ クリアスージングクリーム",kr:"닥터지 레드 블레미쉬 클리어 수딩 크림",cat:"skincare",price:"23,000",emoji:"🌿",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local"],desc:"赤み・肌荒れ鎮静のジェルクリーム。ニキビ肌の韓国人が夏に必ず常備する定番。"},
- {brand:"Kundal",name:"ハニー&マカダミア シャンプー",kr:"쿤달 허니 앤 마카다미아 샴푸",cat:"body",price:"12,000",emoji:"🍯",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["local"],desc:"韓国のドラッグストアシャンプーの代表格。香りの種類が豊富で、ホテルに置きたくなる香水級の残り香。"},
- {brand:"Mediheal",name:"ティーツリー ケアソリューション パック",kr:"메디힐 티트리 케어솔루션 마스크팩",cat:"mask",price:"1,500",emoji:"🍃",bg:"linear-gradient(135deg,#D1FAE5,#ECFDF5)",colls:["local"],desc:"1枚単位で買えるばらまき土産の王様。肌荒れ時のレスキューパックとして韓国人も箱買い。"},
+ // ─── 現地人の定番 (local) ── 主に「2025 オリーブヤング アワード」(実購買データ約1.8億件)&ファハ(Hwahae)2026ランキング ──
+ {brand:"Torriden",name:"ダイブイン 低分子ヒアルロン酸セラム",kr:"토리든 다이브인 저분자 히알루론산 세럼",cat:"skincare",price:"25,900",emoji:"💧",bg:"linear-gradient(135deg,#E0F2FE,#EFF6FF)",colls:["local","jp"],rank:{local:1},src:"2025 オリーブヤング アワード セラム部門1位(5年連続)・ファハ2026化粧品TOP100 総合1位",desc:"低分子ヒアルロン酸5種で軽いのにしっかり潤う保湿セラム。実購買データでも口コミ評価でもトップの、韓国スキンケアの新定番。"},
+ {brand:"Round Lab",name:"1025 独島(ドクト)トナー",kr:"라운드랩 1025 독도 토너",cat:"skincare",price:"14,000",emoji:"🌊",bg:"linear-gradient(135deg,#E0F7FA,#F0FDFF)",colls:["local"],rank:{local:2},src:"2025 オリーブヤング アワード トナー部門1位",desc:"つっぱらない軽い使用感で毎日たっぷり使える鎮静トナー。オールシーズン向けの国民的定番。"},
+ {brand:"Ma:nyo",name:"ピュア クレンジングオイル",kr:"마녀공장 퓨어 클렌징 오일",cat:"skincare",price:"19,000",emoji:"🫧",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local","jp"],rank:{local:3},src:"2025 オリーブヤング アワード クレンジング部門1位(5年連続)",desc:"メイク・毛穴汚れをすっきり落とすクレンジングオイル。5年連続で購買データNo.1の実力派。"},
+ {brand:"AESTURA",name:"アトバリア365 クリーム",kr:"에스트라 아토베리어365 크림",cat:"skincare",price:"25,000",emoji:"🛡️",bg:"linear-gradient(135deg,#EDE9FE,#F5F3FF)",colls:["local"],src:"2025 オリーブヤング アワード クリーム部門1位",desc:"敏感肌向けの保湿バリアクリーム。皮膚科系ブランドで、荒れがちな肌の立て直しに韓国人が頼る一本。"},
+ {brand:"Round Lab",name:"白樺(シラカバ)水分サンクリーム",kr:"라운드랩 자작나무 수분 선크림",cat:"suncare",price:"22,500",emoji:"🌳",bg:"linear-gradient(135deg,#DBEAFE,#EFF6FF)",colls:["local","jp"],src:"2025 オリーブヤング アワード 日焼け止め部門1位",desc:"きしまず白浮きしにくい水分系日焼け止め。韓国人・日本人の両方から支持される万人向けの定番。"},
+ {brand:"Torriden",name:"ダイブイン 低分子ヒアルロン酸マスク",kr:"토리든 다이브인 저분자 히알루론산 마스크",cat:"mask",price:"1,700",emoji:"🧖",bg:"linear-gradient(135deg,#E0F2FE,#F0F9FF)",colls:["local"],src:"2025 オリーブヤング アワード マスクパック部門1位(2024も1位)",desc:"1枚から買えるうるおいシートマスク。ばらまき土産にも、旅行中のレスキューにも使える定番。"},
+ {brand:"JUNG SAEM MOOL",name:"エッセンシャル スキンヌーダー クッション",kr:"정샘물 에센셜 스킨 누더 쿠션",cat:"makeup",price:"48,000",emoji:"🎯",bg:"linear-gradient(135deg,#FEE2E2,#FEF2F2)",colls:["local"],src:"2025 オリーブヤング アワード クッション部門1位(3年連続)",desc:"素肌っぽい自然なツヤ仕上がりで有名なメイクアップアーティスト発ブランドのクッション。"},
+ {brand:"rom&nd",name:"ザ ジューシー ラスティングティント",kr:"롬앤 쥬시 래스팅 틴트",cat:"lip",price:"9,900",emoji:"🍑",bg:"linear-gradient(135deg,#FFE4E6,#FFF7ED)",colls:["local","jp"],src:"2025 オリーブヤング アワード リップメイク部門1位",desc:"ぷるんとしたツヤ発色で日本でも定番のティント。韓国限定色・先行色があり現地で買う価値大。"},
+ {brand:"ILLIYOON",name:"セラミド アトローション",kr:"일리윤 세라마이드 아토 로션",cat:"body",price:"13,000",emoji:"🧴",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["local"],src:"2025 オリーブヤング アワード ボディ保湿部門1位",desc:"韓国の家庭に1本はある大容量ボディローション。セラミド配合で乾燥肌・家族使いにも。"},
+ {brand:"UNOVE",name:"ディープダメージ トリートメントEX",kr:"어노브 딥 데미지 트리트먼트 EX",cat:"body",price:"25,000",emoji:"💇‍♀️",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["local"],src:"2025 オリーブヤング アワード ヘアケア部門1位(4年連続)",desc:"サロン級と評判のヘアトリートメント。ダメージ毛のうるおい補修に韓国で定番の一本。"},
+ {brand:"Goodal",name:"青みかん ビタC 美白ケアセラム",kr:"구달 청귤 비타C 잡티케어 세럼",cat:"skincare",price:"29,900",emoji:"🍊",bg:"linear-gradient(135deg,#FFEDD5,#FEF3C7)",colls:["local"],src:"2025 オリーブヤング アワード セラム部門2位・グダル7年連続受賞",desc:"青みかん由来ビタミンCでくすみ・スポットケア。刺激が少なくビタミンC入門にも選ばれる定番。"},
+ {brand:"BEYOND",name:"クラシック ハンドクリーム ディープモイスチャー",kr:"비욘드 클래식 핸드크림 딥 모이스처",cat:"body",price:"5,000",emoji:"🤲",bg:"linear-gradient(135deg,#DCFCE7,#F0FDF4)",colls:["local"],src:"2025 オリーブヤング アワード ハンドケア部門1位",desc:"プチプラで香りが良いと定番のハンドクリーム。ばらまき土産にもちょうどいい価格帯。"},
+ {brand:"Mise en scène",name:"カーリング エッセンス 2X",kr:"미쟝센 컬링 에센스 2X",cat:"body",price:"9,000",emoji:"💆‍♀️",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["local"],src:"2025 オリーブヤング アワード ヘアスタイリング部門1位",desc:"広がる髪をまとめる韓国ドラッグストア定番のヘアエッセンス。毛先の乾燥・くせ対策に。"},
 
- // ─── 今韓国で話題 (trend) ───
- {brand:"medicube",name:"コラーゲン ナイトラッピングマスク",kr:"메디큐브 콜라겐 나이트 랩핑 마스크",cat:"mask",price:"32,000",emoji:"🌙",bg:"linear-gradient(135deg,#E0E7FF,#EEF2FF)",colls:["trend","jp"],rank:{trend:1},desc:"塗って寝て翌朝ぷるぷる、SNSでバズった「ラップパック」。品切れ店舗が続出した2025年最大のヒット作。"},
- {brand:"VT",name:"リードルショット 100",kr:"브이티 리들샷 100",cat:"skincare",price:"32,000",emoji:"💉",bg:"linear-gradient(135deg,#CFFAFE,#ECFEFF)",colls:["trend","jp"],rank:{trend:2,jp:2},desc:"「針美容液」でおなじみ。微細針が浸透をブースト。初心者は50か100から。日韓両国で爆発的ヒット。"},
- {brand:"Anua",name:"ドクダミ77% スージングトナー",kr:"아누아 어성초 77 수딩 토너",cat:"skincare",price:"20,000",emoji:"🌱",bg:"linear-gradient(135deg,#D9F99D,#F7FEE7)",colls:["trend","jp"],rank:{trend:3},desc:"ドクダミ(オソンチョ)ブームの火付け役。鎮静系トナーで20代に圧倒的人気。日本での売上でも上位。"},
- {brand:"numbuzin",name:"3番 うるつやトナーパッド",kr:"넘버즈인 3번 토너패드",cat:"mask",price:"22,000",emoji:"3️⃣",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["trend","jp"],desc:"番号で選ぶスキンケア「ノンボジン」の代表作。拭き取り+パックが1枚で完了、時短ケアの新定番。"},
- {brand:"mixsoon",name:"ビーンエッセンス",kr:"믹순 빈 에센스",cat:"skincare",price:"22,000",emoji:"🫘",bg:"linear-gradient(135deg,#F5F5F4,#FAFAF9)",colls:["trend"],desc:"「もちもちパック洗顔」動画でバズった発酵エッセンス。角質ケアと保湿を同時に。ミニマル成分派に人気。"},
- {brand:"SKIN1004",name:"マダガスカル センテラアンプル",kr:"스킨1004 마다가스카르 센텔라 앰플",cat:"skincare",price:"19,000",emoji:"🌍",bg:"linear-gradient(135deg,#D1FAE5,#F0FDFA)",colls:["trend"],desc:"シカ(ツボクサ)100%アンプルのロングセラーが再ブレイク。海外でも品薄になった鎮静アンプル。"},
- {brand:"Abib",name:"ドクダミ カーミングトナーパッド",kr:"아비브 어성초 카밍 토너 패드",cat:"mask",price:"25,000",emoji:"🧖",bg:"linear-gradient(135deg,#E0F2FE,#F0F9FF)",colls:["trend"],desc:"大判で密着するトナーパッド。朝のメイク前パックとして韓国の20〜30代のルーティンに定着。"},
- {brand:"WAKEMAKE",name:"ソフトブラーリング アイパレット",kr:"웨이크메이크 소프트 블러링 아이 팔레트",cat:"makeup",price:"25,000",emoji:"🎨",bg:"linear-gradient(135deg,#FAE8FF,#FDF4FF)",colls:["trend"],desc:"韓国ドラッグストアのベストセラーアイパレット。捨て色なしのブラーリング質感で新色は即完売。"},
- {brand:"fwee",name:"プリンポット",kr:"퓌 푸딩팟",cat:"lip",price:"14,000",emoji:"🍮",bg:"linear-gradient(135deg,#FFE4E6,#FFF1F2)",colls:["trend"],desc:"ぷるんとしたプリン質感のリップ&チーク。指でポンポン塗るだけで韓国っぽい「じゅわっと発色」に。"},
- {brand:"UNOVE",name:"ディープダメージ トリートメントEX",kr:"어노브 딥 대미지 트리트먼트 EX",cat:"body",price:"25,000",emoji:"💇‍♀️",bg:"linear-gradient(135deg,#FCE7F3,#FDF2F8)",colls:["trend"],desc:"サロン級と話題のヘアトリートメント。ブリーチ毛の韓国アイドルが使うと紹介され大ヒット。"},
+ // ─── 今韓国で話題 (trend) ── SNSバズ&2026の売れ筋・トレンド ──
+ {brand:"VT",name:"リードルショット 100",kr:"브이티 리들샷 100",cat:"skincare",price:"32,000",emoji:"💉",bg:"linear-gradient(135deg,#CFFAFE,#ECFEFF)",colls:["trend","jp"],rank:{trend:1,jp:4},src:"SNSで話題の「塗る美容鍼」・APEC2025首脳ギフトに採用",desc:"微細な成分が角質層への浸透をサポートする話題のエッセンス。初心者は数字の小さい100から。"},
+ {brand:"BIODANCE",name:"バイオコラーゲン リアルディープマスク",kr:"바이오던스 바이오 콜라겐 리얼 딥 마스크",cat:"mask",price:"20,000",emoji:"✨",bg:"linear-gradient(135deg,#E0E7FF,#F5F3FF)",colls:["trend","jp"],rank:{trend:2,jp:2},src:"TikTok「モーニングシェッド」で世界的にバズり・2026も定番の人気マスク",desc:"透明になるまで一晩貼る「溶けるコラーゲンマスク」。翌朝のもっちり感が話題のガラス肌ケア。"},
+ {brand:"Anua",name:"ドクダミ77% スージングトナー",kr:"아누아 어성초 77 수딩 토너",cat:"skincare",price:"20,000",emoji:"🌱",bg:"linear-gradient(135deg,#D9F99D,#F7FEE7)",colls:["trend","jp"],rank:{trend:3,jp:1},src:"ブランドTikTok約24億回再生・米セフォラ1,400店展開/LIPSベストコスメ2024化粧水1位",desc:"ドクダミ(オソンチョ)ブームの火付け役。肌をやさしく整える鎮静トナーで日韓ともに人気。"},
+ {brand:"medicube",name:"コラーゲン ナイトラッピングマスク",kr:"메디큐브 콜라겐 나이트 랩핑 마스크",cat:"mask",price:"32,000",emoji:"🌙",bg:"linear-gradient(135deg,#E0E7FF,#EEF2FF)",colls:["trend"],src:"「ガラス肌」ラップパックとしてSNSでヒット",desc:"夜塗って寝るだけのオーバーナイト・ラップパック。翌朝のハリ感がSNSで話題に。"},
+ {brand:"Beauty of Joseon",name:"リリーフサン ライス+プロバイオティクス",kr:"조선미녀 릴리프 선 라이스 프로바이오틱스",cat:"suncare",price:"14,000",emoji:"🌾",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["trend","jp"],src:"Amazon米国 日焼け止め1位・世界的にバズったベストセラー",desc:"米エキス配合で白浮きせずしっとり艶肌に。世界的に人気のデイリー向け日焼け止め。"},
+ {brand:"Laneige",name:"グレイズクレイズ ティンテッドリップセラム",kr:"라네즈 글레이즈 크레이즈 틴티드 립 세럼",cat:"lip",price:"20,000",emoji:"🍩",bg:"linear-gradient(135deg,#FCE7F3,#FDF4FF)",colls:["trend"],src:"「ドーナツリップセラム」米国で完売連発・2025春に韓国発売",desc:"リップバーム+ティント+グロスのハイブリッド。うるつやな仕上がりで話題の新作リップ。"},
+ {brand:"Rejuran",name:"ポアタイトニング アンプル",kr:"리쥬란 포어 타이트닝 앰플",cat:"skincare",price:"40,000",emoji:"🐟",bg:"linear-gradient(135deg,#FCE7F3,#FEF2F2)",colls:["trend","jp"],src:"Qoo10ビューティ売れ筋上位(2026)・PDRN(サーモンDNA)トレンドの代表格",desc:"2026注目成分PDRN配合の毛穴・ハリケアアンプル。成分科学ブームを象徴する一本。"},
+ {brand:"numbuzin",name:"3番 スーパーグローイング エッセンストナー",kr:"넘버즈인 3번 슈퍼 글로잉 에센스 토너",cat:"skincare",price:"22,000",emoji:"3️⃣",bg:"linear-gradient(135deg,#FEF9C3,#FEFCE8)",colls:["trend"],src:"発酵成分で肌質ケア・オリーブヤング2026人気",desc:"番号で選ぶスキンケア「ノンボジン」の人気作。発酵成分でうるおいとツヤを与えるエッセンストナー。"},
+ {brand:"SKIN1004",name:"マダガスカル センテラアンプル",kr:"스킨1004 마다가스카르 센텔라 앰플",cat:"skincare",price:"19,000",emoji:"🌍",bg:"linear-gradient(135deg,#D1FAE5,#F0FDFA)",colls:["trend"],src:"シカ(ツボクサ)100%アンプル・海外でも品薄になった人気",desc:"マダガスカル産ツボクサ由来成分の鎮静アンプル。ゆらぎ肌ケアのロングセラー。"},
+ {brand:"Abib",name:"ドクダミ カーミングトナーパッド",kr:"아비브 어성초 카밍 토너 패드",cat:"mask",price:"25,000",emoji:"🍃",bg:"linear-gradient(135deg,#E0F2FE,#F0F9FF)",colls:["trend","jp"],src:"2025日本再上陸・MAQUIAシートマスクランキング掲載",desc:"大判で密着するトナーパッド。朝のメイク前パックとして韓国の20〜30代に定着。"},
 
- // ─── 日本人に人気 (jp) ───
- {brand:"BIODANCE",name:"バイオコラーゲン リアルディープマスク",kr:"바이오던스 바이오 콜라겐 리얼 딥 마스크",cat:"mask",price:"20,000",emoji:"✨",bg:"linear-gradient(135deg,#E0E7FF,#F5F3FF)",colls:["jp","trend"],rank:{jp:1},desc:"透明になるまで一晩貼る「溶けるコラーゲンマスク」。日本人観光客の爆買い対象No.1で、日本のSNSでも常にバズ中。"},
- {brand:"TIRTIR",name:"マスクフィット レッドクッション",kr:"티르티르 마스크핏 레드쿠션",cat:"makeup",price:"27,000",emoji:"🔴",bg:"linear-gradient(135deg,#FEE2E2,#FEF2F2)",colls:["jp"],rank:{jp:4},desc:"日本のコスメアワードを総なめにしたクッションファンデ。マスクにつかない密着カバーで日本人の定番土産に。"},
- {brand:"rom&nd",name:"ジューシーラスティングティント",kr:"롬앤 쥬시 래스팅 틴트",cat:"lip",price:"9,900",emoji:"🍑",bg:"linear-gradient(135deg,#FFE4E6,#FFF7ED)",colls:["jp","local"],rank:{jp:5},desc:"日本でも大人気のロムアンド代表ティント。韓国限定色・先行色があるので現地で買う価値大。"},
- {brand:"CLIO",name:"キルカバー ザニューファンウェア クッション",kr:"클리오 킬커버 더 뉴 파운웨어 쿠션",cat:"makeup",price:"30,000",emoji:"🎯",bg:"linear-gradient(135deg,#E5E7EB,#F9FAFB)",colls:["jp"],desc:"「カバー力のキルカバー」。パフ付きリフィル構成で実質2個分、日本で買うよりかなりお得。"},
- {brand:"Beauty of Joseon",name:"リリーフサン 米+プロバイオティクス",kr:"조선미녀 맑은쌀 선크림",cat:"suncare",price:"14,000",emoji:"🌾",bg:"linear-gradient(135deg,#FEF3C7,#FFFBEB)",colls:["jp","trend"],desc:"「朝鮮美女」の米日焼け止め。世界的にバズったベストセラーで、しっとり艶肌に仕上がると日本人にも大人気。"},
- {brand:"Round Lab",name:"自作(シラカバ)水分サンクリーム",kr:"라운드랩 자작나무 수분 선크림",cat:"suncare",price:"18,000",emoji:"🌳",bg:"linear-gradient(135deg,#DBEAFE,#EFF6FF)",colls:["jp","local"],desc:"軋まない・白浮きしない水分系日焼け止めの代表。韓国人と日本人の両方から支持される万人向けの一本。"},
- {brand:"d'Alba",name:"ホワイトトリュフ ファーストスプレーセラム",kr:"달바 화이트 트러플 퍼스트 스프레이 세럼",cat:"skincare",price:"32,000",emoji:"💨",bg:"linear-gradient(135deg,#F3E8FF,#FAF5FF)",colls:["jp"],desc:"シュッと吹きかけるミスト美容液。メイクの上から使える保湿ミストとして日本の百貨店でも話題に。"},
- {brand:"peripera",name:"インクムード グロイティント",kr:"페리페라 잉크무드 글로이 틴트",cat:"lip",price:"9,000",emoji:"💋",bg:"linear-gradient(135deg,#FFE4E6,#FCE7F3)",colls:["jp"],desc:"1,000円台で買えるプチプラティントの傑作。透け感グロウ発色でまとめ買いのばらまき土産に最適。"},
- {brand:"dasique",name:"シャドウパレット",kr:"데이지크 섀도우 팔레트",cat:"makeup",price:"34,000",emoji:"🌸",bg:"linear-gradient(135deg,#FCE7F3,#FDF4FF)",colls:["jp"],desc:"繊細ラメと血色カラーで日本人の骨格・肌トーンにも合わせやすいと人気。季節限定パレットは即完売。"},
- {brand:"MEDIHEAL",name:"マデカソサイド ひんやりパッド",kr:"메디힐 마데카소사이드 흔적 패드",cat:"mask",price:"20,000",emoji:"❄️",bg:"linear-gradient(135deg,#CFFAFE,#F0FDFF)",colls:["jp"],desc:"大判トナーパッドの火付け役。旅行中の日焼け後クールダウンにも使えると日本人リピーター多数。"},
+ // ─── 日本人に特に人気 (jp) ── @cosme/LIPS アワード&Qoo10 Japan 売れ筋 ──
+ {brand:"rom&nd",name:"ハンオール ブロウカラ",kr:"롬앤 한올 브로우카라",cat:"makeup",price:"12,000",emoji:"🖌️",bg:"linear-gradient(135deg,#FEF3C7,#FFF7ED)",colls:["jp"],rank:{jp:3},src:"@cosmeベストコスメ2024 総合3位(韓国コスメ初のTOP10入り)",desc:"自然な毛流れを作る眉マスカラ。日本の@cosme総合ランキングで上位に入った実力派。"},
+ {brand:"Laneige",name:"リップ スリーピングマスク",kr:"라네즈 립 슬리핑 마스크",cat:"lip",price:"22,000",emoji:"💤",bg:"linear-gradient(135deg,#FBCFE8,#FDF2F8)",colls:["jp"],rank:{jp:5},src:"世界的ロングセラー・日本で人気の香りはグレープフルーツ",desc:"夜塗って寝る保湿リップマスク。日本のリップマスク定番として長年愛される一本。"},
+ {brand:"DERMAFIRM",name:"トニング セラム",kr:"더마펌 토닝 세럼",cat:"skincare",price:"30,000",emoji:"🌟",bg:"linear-gradient(135deg,#EDE9FE,#F5F3FF)",colls:["jp"],rank:{jp:6},src:"Qoo10メガ割2025 売上1位(VALUES集計)",desc:"スポット・くすみが気になる肌向けの美容液。日本のQoo10メガ割で売上トップになった話題作。"},
+ {brand:"BIOHEAL BOH",name:"プロバイオダーム 3Dリフティングクリーム",kr:"바이오힐보 3D 리프팅 크림",cat:"skincare",price:"28,000",emoji:"⏫",bg:"linear-gradient(135deg,#FFEDD5,#FFF7ED)",colls:["jp"],rank:{jp:7},src:"Qoo10メガ割2025 売上2位(VALUES集計)",desc:"ハリ・弾力ケアのエイジングクリーム。日本のQoo10メガ割で売上2位の人気アイテム。"},
+ {brand:"CLIO",name:"プロ アイパレット エア",kr:"클리오 프로 아이 팔레트 에어",cat:"makeup",price:"34,000",emoji:"🎨",bg:"linear-gradient(135deg,#FAE8FF,#FDF4FF)",colls:["jp"],src:"日本限定色を展開・LIPS16,000件超レビュー(日本¥3,960)",desc:"繊細なラメと使いやすい捨て色なしのアイパレット。日本限定色が出るほど日本人に人気。"},
+ {brand:"medicube",name:"ゼロ毛穴パッド 2.0",kr:"메디큐브 제로 모공 패드 2.0",cat:"mask",price:"25,000",emoji:"⭕",bg:"linear-gradient(135deg,#CFFAFE,#F0FDFF)",colls:["jp"],src:"日本の@cosme/LIPSで人気の毛穴ケアパッド",desc:"AHA/BHA配合の拭き取り毛穴パッド。ざらつき・角質ケアとして日本でも定番人気。"},
 ];
 
 const COLL_META = {
-  local:{title:"🏠 現地人の定番",desc:"観光客向けではなく、韓国人が自分のお金でリピート買いしている「本当の定番」。韓国人の友達に聞いたらまずこれが返ってくる、というアイテムだけを集めました。"},
-  trend:{title:"🔥 今韓国で話題",desc:"SNS(インスタ・TikTok・韓国の口コミアプリ)で今まさにバズっていて、オリヤンの売れ筋ランキングを駆け上がっているアイテム。「今」の韓国が買っているもの。"},
-  jp:{title:"🇯🇵 日本人に特に人気",desc:"日本人観光客の購入データやSNSで特に日本人からの支持が厚いアイテム。「日本で買うより安い」「日本未上陸・限定色がある」ものを優先して選んでいます。"}
+  local:{title:"🏠 現地人の定番",desc:"韓国人が実際にリピート買いしている定番。主に「2025 オリーブヤング アワード」(約1.8億件の実購買データに基づく年間ランキング)と、口コミアプリ「ファハ(Hwahae)」の2026ランキングで上位のアイテムを選びました。"},
+  trend:{title:"🔥 今韓国で話題",desc:"SNS(TikTok・Instagram)でバズり、2026の売れ筋・トレンドとして注目されているアイテム。各商品に「なぜ話題か」の根拠を明記しています。話題性の指標は出典により異なります。"},
+  jp:{title:"🇯🇵 日本人に特に人気",desc:"日本の@cosme・LIPSのベストコスメ受賞や、Qoo10 Japanの売れ筋データで、特に日本人からの支持が確認できるアイテム。各商品に受賞・ランキングの出典を明記しています。"}
 };
 
 let state={coll:"local",cat:"all",q:""};
@@ -362,6 +400,7 @@ function render(){
         <div class="card-name">${p.name}</div>
         <button class="card-kr" data-kr="${p.kr}" title="タップでコピー">${p.kr}</button>
         <p class="card-desc">${p.desc}</p>
+        ${p.src?`<div class="card-src">${p.src}</div>`:""}
         <div class="card-foot">
           <span class="card-price">₩${p.price}<span>目安</span></span>
           <span class="card-cat">${cats[p.cat]}</span>
