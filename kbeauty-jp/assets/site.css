@@ -58,6 +58,8 @@ img{display:block;max-width:100%}
 .article-body th{background:var(--green-t);font-weight:700;color:var(--green-d)}
 .article-body td{color:var(--ink70)}
 .kr-tip{font-family:'Noto Sans KR',sans-serif;color:var(--green-d);font-weight:600}
+.article-body .note{font-size:12px;color:var(--ink50)}
+.article-body code{font-family:var(--fm);background:var(--green-t);border:1px solid rgba(11,163,96,.25);border-radius:6px;padding:2px 8px;font-size:13px;color:var(--green-d);font-weight:700}
 
 /* AD SLOT */
 .ad-slot{margin:34px 0;border:1.5px dashed var(--ink15);border-radius:var(--r);background:var(--ink04);min-height:100px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
