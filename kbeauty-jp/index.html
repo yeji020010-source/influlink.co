@@ -248,6 +248,21 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .sk-kr:hover{text-decoration:underline}
 .sk-card .card-photo{margin-left:auto}
 .skin-more{margin-top:12px;font-size:11.5px;color:var(--ink35)}
+
+/* SHOP (AFFILIATE) */
+.b-shop{background:linear-gradient(120deg,#FFEDD5,#FFF7ED)}
+.pr-chip{font-size:10px;font-weight:700;color:var(--ink50);border:1px solid var(--ink15);border-radius:6px;padding:2px 7px;vertical-align:middle;background:#fff}
+.shop-card{border:1px solid var(--ink15);border-radius:18px;padding:26px 28px;background:linear-gradient(135deg,var(--green-t),#fff);margin-top:4px}
+.shop-lead{font-size:13.5px;color:var(--ink70);line-height:1.85;max-width:720px}
+.shop-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 20px}
+@media(max-width:640px){.shop-steps{grid-template-columns:1fr}}
+.shop-step{background:#fff;border:1px solid var(--ink15);border-radius:12px;padding:14px 16px}
+.shop-step b{display:block;font-size:13px;font-weight:800;margin-bottom:5px}
+.shop-step span{font-size:12px;color:var(--ink50);line-height:1.75}
+.shop-cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.shop-code{font-family:var(--fm);font-weight:700;font-size:14px;letter-spacing:.05em;border:1.5px dashed var(--green);color:var(--green-d);background:var(--green-t);border-radius:10px;padding:11px 16px;cursor:pointer;transition:.13s}
+.shop-code:hover{background:var(--green-l)}
+.shop-note{margin-top:14px;font-size:11px;color:var(--ink35);line-height:1.8}
 </style>
 </head>
 <body>
@@ -303,6 +318,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
         <span class="banner-ico">🧾</span>
         <div class="banner-tx"><b>3万ウォン以上で即時タックスリフンド</b><span>レジでその場で免税(即時還付)。<strong>パスポート必携</strong>をお忘れなく。</span></div>
       </div>
+      <div class="banner b-shop">
+        <span class="banner-ico">🛒</span>
+        <div class="banner-tx"><b>日本からもネットで買える <span class="pr-chip">PR</span></b><span>OLIVE YOUNG公式グローバル通販はUS$60以上で<strong>送料無料</strong>。買い逃した分は帰国後に。<a href="#shop" style="color:var(--green-d);font-weight:700">詳しく →</a></span></div>
+      </div>
     </div>
   </div>
   <div class="banner-dots" id="bannerDots"></div>
@@ -330,6 +349,28 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
   <div class="skin-note" id="skinNote"></div>
   <div class="skin-grid" id="skinGrid"></div>
   <div class="skin-more" id="skinMore"></div>
+</section>
+
+<!-- ── 公式グローバル通販(アフィリエイト) ── -->
+<section class="feature container" id="shop">
+  <div class="feature-head">
+    <div class="sec-label">Online Shop</div>
+    <h2>日本からもネットで買える 🛒 <span class="pr-chip">PR・アフィリエイト広告</span></h2>
+    <p>韓国に行く予定がなくても大丈夫。OLIVE YOUNG公式のグローバル通販「OLIVE YOUNG Global」は日本への発送に対応しています。買い逃したアイテムのリピート買いにも。</p>
+  </div>
+  <div class="shop-card">
+    <p class="shop-lead">当サイトのリンク・紹介コードはアフィリエイト広告です。リンク経由の購入により当サイトに紹介料が入ることがありますが、<b>購入者の支払い金額は変わりません</b>。</p>
+    <div class="shop-steps">
+      <div class="shop-step"><b>1️⃣ 公式通販へ移動</b><span>下のボタンからOLIVE YOUNG Globalへ。US$60以上の購入で送料無料です。</span></div>
+      <div class="shop-step"><b>2️⃣ 商品を検索</b><span>商品カードの韓国語名(タップでコピー)やブランド名の英語表記で検索すると見つけやすいです。</span></div>
+      <div class="shop-step"><b>3️⃣ コードを入力</b><span>決済画面の「REDEEM CODE」欄に下の紹介コードを入力してください。</span></div>
+    </div>
+    <div class="shop-cta">
+      <a class="btn-g" href="https://global.oliveyoung.com/if/rd?su=AS22482248" target="_blank" rel="sponsored noopener">OLIVE YOUNG Globalで見る ↗</a>
+      <button class="shop-code" data-kr="AS22482248" title="タップでコピー">CODE: AS22482248 📋</button>
+    </div>
+    <p class="shop-note">※リンク先はCJ Olive Youngが運営する公式グローバルモールです。価格・在庫・配送条件・クーポン適用可否は必ず公式サイトでご確認ください。</p>
+  </div>
 </section>
 
 <div class="tabs-wrap">
@@ -430,6 +471,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
     <div class="faq-item"><button class="faq-q">日本語は通じる?</button><div class="faq-a"><p>明洞など観光地の大型店には日本語対応スタッフがいることが多いです。それ以外の店舗でも、このサイトの商品カード(韓国語名)をそのまま見せれば問題なく買い物できます。</p></div></div>
     <div class="faq-item"><button class="faq-q">支払いは日本のクレカでOK?現金は必要?</button><div class="faq-a"><p>VISA/Mastercard/JCBなど日本発行のクレジットカードがほぼ全店で使えます。現金(ウォン)がなくても大丈夫。タッチ決済も普及しています。</p></div></div>
     <div class="faq-item"><button class="faq-q">液体類は飛行機に持ち込める?</button><div class="faq-a"><p>スーツケース(預け荷物)に入れれば容量制限はほぼ気にしなくてOK。機内持ち込みは100ml以下の容器のみなので、トナーやクレンジングオイルは必ず預け荷物へ。</p></div></div>
+    <div class="faq-item"><button class="faq-q">韓国に行かなくても日本から買える?</button><div class="faq-a"><p>買えます。OLIVE YOUNG公式のグローバル通販「OLIVE YOUNG Global」が日本発送に対応しており、US$60以上の購入で送料無料です。詳しくはページ内の「日本からもネットで買える」セクションをご覧ください(当サイトのリンクはアフィリエイト広告です)。</p></div></div>
     <div class="faq-item"><button class="faq-q">このサイトはオリーブヤング公式?</button><div class="faq-a"><p>いいえ、当サイトはCJ Olive Young社とは一切関係のない非公式の個人運営ガイドです。価格や在庫は変動するため、最新情報は店頭でご確認ください。</p></div></div>
   </div>
 </section>
@@ -443,11 +485,11 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
       <a href="privacy.html">プライバシーポリシー</a>
     </div>
     <strong>💄 KBEAUTY.jp</strong> — 日本人向けK-Beauty完全ガイド<br>
-    <span class="disc">※当サイトはCJ Olive Young社および各コスメブランドとは関係のない非公式の情報サイトです。掲載価格は目安であり、実際の店頭価格・在庫・セール情報とは異なる場合があります。「オリーブヤング」「올리브영」は各権利者の商標です。<br>© 2026 KBEAUTY.jp / influlink.co</span>
+    <span class="disc">※当サイトはCJ Olive Young社および各コスメブランドとは関係のない非公式の情報サイトです。掲載価格は目安であり、実際の店頭価格・在庫・セール情報とは異なる場合があります。「オリーブヤング」「올리브영」は各権利者の商標です。<br>※当サイトはOLIVE YOUNG Globalアフィリエイトプログラムに参加しており、「🛒」リンク・紹介コード経由の購入により紹介料を得ることがあります(購入者の支払い金額は変わりません)。<br>© 2026 KBEAUTY.jp / influlink.co</span>
   </div>
 </footer>
 
-<div class="toast" id="toast">韓国語の商品名をコピーしました 📋</div>
+<div class="toast" id="toast">コピーしました 📋</div>
 
 <script>
 const PRODUCTS = [
@@ -685,6 +727,7 @@ function render(){
         <div class="card-kr-row">
           <button class="card-kr" data-kr="${p.kr}" title="タップでコピー">${p.kr}</button>
           <a class="card-photo" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(p.kr)}" target="_blank" rel="noopener" title="実際の写真を画像検索で見る">📷 写真</a>
+          <a class="card-photo" href="https://global.oliveyoung.com/if/rd?su=AS22482248" target="_blank" rel="sponsored noopener" title="OLIVE YOUNG公式グローバル通販で探す(アフィリエイト広告)">🛒</a>
         </div>
         <p class="card-desc">${p.desc}</p>
         ${p.src?`<div class="card-src">${p.src}</div>`:""}
