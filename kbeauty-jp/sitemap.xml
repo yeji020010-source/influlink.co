@@ -43,6 +43,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kbeauty-jp.com/about.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://kbeauty-jp.com/contact.html</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
