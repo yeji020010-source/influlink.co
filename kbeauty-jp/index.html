@@ -152,6 +152,9 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
 .card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--ink35)}
 .card-img{height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden}
 .card-img::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.55),transparent 60%);pointer-events:none}
+.card-img.has-img::after{display:none}
+.card-photo-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block}
+.card-credit{position:absolute;left:8px;bottom:8px;z-index:2;font-size:9.5px;font-weight:600;color:#fff;background:rgba(17,24,39,.62);padding:2px 8px;border-radius:99px;letter-spacing:.01em;backdrop-filter:blur(2px)}
 .card-emoji{font-size:52px;line-height:1;filter:drop-shadow(0 4px 8px rgba(17,24,39,.12));z-index:1}
 .card-wordmark{z-index:1;font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:.02em;color:rgba(17,24,39,.55);text-transform:uppercase;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);padding:3px 12px;border-radius:99px;backdrop-filter:blur(4px);max-width:85%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .card-rank{position:absolute;top:10px;left:10px;z-index:2;background:rgba(17,24,39,.85);color:#fff;font-family:var(--fd);font-weight:800;font-size:12px;padding:3px 9px;border-radius:7px}
@@ -439,7 +442,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer}
         <span>日本で韓国コスメがよく売れるセール。マーケティング会社の売上データ分析(2025)を参照しています。</span>
       </div>
     </div>
-    <p class="sources-note">※ 商品写真は著作権保護のため当サイトには掲載せず、各カードの「📷 写真」から画像検索結果(実際の購入者の写真など)をご覧いただけます。※ 価格はセット構成・時期・セールにより頻繁に変わるため、<strong>あえて表示していません</strong>。正確な価格・在庫は店頭またはオリーブヤング公式アプリでご確認ください。ランキングは各出典の集計時点のもので、常に最新とは限りません。当サイトはオリーブヤングおよび各ブランドとは関係のない非公式の情報サイトです。</p>
+    <p class="sources-note">※ 一部の商品写真は OLIVE YOUNG GLOBAL の公式画像を許諾のうえ「© Olive Young GLOBAL」出典つきで掲載しています。写真のない商品は、各カードの「📷 写真」から画像検索結果もご覧いただけます。※ 価格はセット構成・時期・セールにより頻繁に変わるため、<strong>あえて表示していません</strong>。正確な価格・在庫は店頭またはオリーブヤング公式アプリでご確認ください。ランキングは各出典の集計時点のもので、常に最新とは限りません。当サイトはオリーブヤングおよび各ブランドとは関係のない非公式の情報サイトです。</p>
   </section>
 </main>
 
@@ -727,9 +730,12 @@ function render(){
     ].join("");
     const cats={skincare:"スキンケア",suncare:"日焼け止め",mask:"パック",makeup:"メイク",lip:"リップ",body:"ボディ・ヘア"};
     return `<article class="card">
-      <div class="card-img" style="background:${p.bg}">
-        <span class="card-emoji">${p.emoji}</span>
-        <span class="card-wordmark">${p.brand}</span>
+      <div class="card-img${p.img?' has-img':''}" style="background:${p.bg}">
+        ${p.img
+          ?`<img class="card-photo-img" src="assets/products/${p.img}" alt="${p.brand} ${p.name}" loading="lazy">
+            <span class="card-credit">© Olive Young GLOBAL</span>`
+          :`<span class="card-emoji">${p.emoji}</span>
+            <span class="card-wordmark">${p.brand}</span>`}
         ${rank?`<span class="card-rank">No.${rank}</span>`:""}
         <div class="card-badges">${badges}</div>
       </div>
