@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://kbeauty-jp.com/blog/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -39,6 +39,24 @@
   <url>
     <loc>https://kbeauty-jp.com/blog/donki-vs-oliveyoung.html</loc>
     <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kbeauty-jp.com/blog/skincare-ingredients-guide.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kbeauty-jp.com/blog/oliveyoung-korean-phrases.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kbeauty-jp.com/blog/beginners-guide-kbeauty.html</loc>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
